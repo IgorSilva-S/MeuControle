@@ -129,6 +129,11 @@ section {
   gap: 30px;
 }
 
+.dialogInfo {
+  width: 100%;
+  padding: 20px 4px;
+}
+
 .timeMouseMove {
   width: 100vw;
   height: 440px;

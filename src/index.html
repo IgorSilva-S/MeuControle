@@ -43,6 +43,9 @@
       <br><br>
       <input type="radio" class="app-radio-button" id="defineControl" name="appObjetive">
       <label for="defineControl">Para ter o controle de quanto tempo uso meu computador</label>
+      <button class="app-btn" data-win-toggle="modal" data-win-target="#MyModal">
+        <span>Open Alert Default</span>
+      </button>
     </div>
 
     <!--IF time screen-->
@@ -117,6 +120,28 @@
         <button class="app-btn app-btn-primary">
           <span>Finalizar</span>
         </button>
+      </div>
+    </div>
+
+    <!--Alert-->
+    <div class="app-alert" id="MyModal" data-win-toggle="modal" data-win-target="#MyModal" tabindex="-1">
+      <div class="app-alert-modal" aria-modal="true" role="dialog">
+        <div class="app-alert-header">
+          <h1>Alert</h1>
+          <div class="app-alert-message">
+            <div class="dialogInfo">As senhas não combinam!</div>
+            <div class="dialogInfo">Insira uma hora para bloquear</div>
+            <div class="dialogInfo">Insira uma hora para desbloquear</div>
+            <div class="dialogInfo">Defina uma senha</div>
+            <div class="dialogInfo">Selecione uma das opções sobre a senha</div>
+          </div>
+        </div>
+        <div class="app-alert-footer">
+          <button class="app-btn app-btn-primary"
+            data-win-toggle="modal" data-win-target="#MyModal">
+            <span>OK to Close</span>
+          </button>
+        </div>
       </div>
     </div>
   </section>

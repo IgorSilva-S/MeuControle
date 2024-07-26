@@ -69,7 +69,8 @@ function hideAllPages() {
 }
 
 setupButton.addEventListener('click', () => {
-    alert('A introdução ainda não está completa!')
+    hideAllPages()
+    setupPage.removeAttribute('style')
 })
 
 noSetupButton.addEventListener('click', () => {
