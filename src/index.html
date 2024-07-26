@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Meu Controle</title>
+  <link rel="stylesheet" href="segoeFont.css">
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <!--Portuguese (Brazil)-->
+  <div class="titlebar">
+    <div class="titlebarIcon"></div>
+    Meu Controle
+  </div>
+  <!--Welcome Page-->
+  <section class="welcomePage" id="welcomePage">
+    <h1 textType="titleLarge">Bem vindo(a) ao Meu Controle!</h1>
+    <p textType="subtitle">Gostaria de fazer a introdução do aplicativo?</p>
+    <div class="alignButtonsCenter">
+      <button class="app-btn app-btn-primary" id="setupButton">
+        <span>Ir para introdução</span>
+      </button>
+      <button class="app-btn" id="noSetupButton">
+        <span>Pular introdução</span>
+      </button>
+
+    </div>
+
+  </section>
+
+  <!--Setup Page-->
+  <section id="setupPage" style="display: none">
+    <h1 textType="title">Configurações iniciais</h1>
+    Faremos as suas configurações para que o app se torne melhor para você!
+
+    <div class="appBlock">
+      <p textType="subtitle">Com qual objetivo você usará o Meu Controle?</p>
+      <br>
+      <input type="radio" class="app-radio-button" id="defineScreenTime" name="appObjetive">
+      <label for="defineScreenTime">Para definir tempo de tela</label>
+      <br><br>
+      <input type="radio" class="app-radio-button" id="defineControl" name="appObjetive">
+      <label for="defineControl">Para ter o controle de quanto tempo uso meu computador</label>
+    </div>
+
+    <!--IF time screen-->
+    <div id="timeScreenSettings" style="display: none;">
+      <div class="appBlock">
+        <p textType="subtitle">Qual seria o seu tempo de uso diário?</p>
+        <br>
+        <label for="hours">Horas:</label>
+        <div class="app-input-container">
+          <input class="app-input-text" type="number" id="hours">
+        </div>
+        <br><br>
+        <label for="minutes">Minutos:</label>
+        <div class="app-input-container">
+          <input class="app-input-text" type="number" id="minutes">
+        </div>
+      </div>
+
+      <div class="appBlock">
+        <p textType="subtitle">Gostaria de inserir uma senha para modificar as configurações?</p>
+        <br>
+        <input type="radio" class="app-radio-button" id="definePassword" name="isPassword">
+        <label for="definePassword" style="margin-right: 20px;">Sim</label>
+        <input type="radio" class="app-radio-button" id="notDefinePassword" name="isPassword">
+        <label for="notDefinePassword">Não</label>
+        <div id="passwordYes" style="display: none">
+          <br><br>
+          <label for="userPassword">Defina sua senha:</label>
+          <div class="app-input-container" id="contPass1">
+            <input class="app-input-text" type="password" id="userPassword">
+          </div>
+          <br><br>
+          <label for="userPassword2">Faça ela memorável, escreva novamente:</label>
+          <div class="app-input-container" id="contPass2">
+            <input class="app-input-text" type="password" id="userPassword2">
+          </div>
+        </div>
+      </div>
+
+      <div class="alignButtonEnd">
+        <button class="app-btn app-btn-primary" id="endScreenTime">
+          <span>Finalizar</span>
+        </button>
+      </div>
+    </div>
+    <!--IF Control-->
+    <div id="controlSettings" style="display: none;">
+      <div class="appBlock">
+        <p textType="subtitle">Como gostaria que o aplicativo se comportasse?</p>
+        <br>
+        <input type="radio" class="app-radio-button" id="microPopup" name="appBehavior">
+        <label for="microPopup">Como um pequeno popup no canto inferior direito</label>
+        <br><br>
+        <input type="radio" class="app-radio-button" id="totalHide" name="appBehavior">
+        <label for="totalHide">Apenas rodar no fundo</label>
+        <br><br>
+        <input type="radio" class="app-radio-button" id="showTaskbar" name="appBehavior">
+        <label for="showTaskbar">Aparecer na barra de tarefas do sistema</label>
+      </div>
+
+      <div class="appBlock">
+        <p textType="subtitle">Como será o modo de apresentação dos dados?</p>
+        <br>
+        <input type="radio" class="app-radio-button" id="normalStyle" name="dataStyle">
+        <label for="normalStyle">Modo normal</label>
+        <br><br>
+        <input type="radio" class="app-radio-button" id="simpleStyle" name="dataStyle">
+        <label for="simpleStyle">Modo simples</label>
+      </div>
+
+      <div class="alignButtonEnd">
+        <button class="app-btn app-btn-primary">
+          <span>Finalizar</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!--User Page-->
+  <section id="userPage" class="userPage" style="display: none">
+    <div class="timeMouseMove" id="mouseMove">
+      <div class="oobeBlock" id="block1"></div>
+      <div class="oobeBlock" id="block2" style="animation-delay: 1s;"></div>
+      <div class="oobeBlock" id="block3" style="animation-delay: 2s;"></div>
+      <div class="oobeBlock" id="block4" style="animation-delay: 3s;"></div>
+      <div class="oobeBlock" id="block5" style="animation-delay: 4s;"></div>
+      <div class="oobeBlock" id="block6" style="animation-delay: 5s;"></div>
+      <div class="mouseMoveAcrylic" id="acrylicPart">
+        <button class="changeTimeVisibility" id="changeTimeVisibility">
+          <fluent-icon iconsize="32" id="iconTimeButton">&#xE8C5;</fluent-icon>
+        </button>
+        <h1 textType="title" class="userPageTitle" id="myPageTitle">Minha página</h1>
+        <div>
+          <p textType="subtitle" id="textScreenTime">Tempo de tela utilizado:</p>
+          <p textType="display" id="screenTimeWatch">
+            <span id="hoursScreen">0</span> <span id="hourText">horas</span>
+
+            <span id="isMinute">
+              e <span id="minutesScreen">0</span> <span id="minuteText">minutos</span>
+            </span>
+          </p>
+        </div>
+
+        <div id="sleepTime" style="display: none">
+          <p textType="subtitle">Hora de dormir:</p>
+          <p textType="display">22 horas</p>
+        </div>
+      </div>
+    </div>
+    <div class="roundCorner" id="roundCorner"></div>
+
+    <div class="itemsContainer" id="items">
+      <div class="appBlock">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xF182;</fluent-icon>
+          <div>
+            <p>Resumo de tempo</p>
+            <p textType="caption">Ver quanto tempo de tela foi utilizado nos últimos cinco dias</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="appBlock">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xEE3F;</fluent-icon>
+          <div>
+            <p>Bloqueio de tela</p>
+            <p textType="caption">Mudar tempo, hora de dormir, modo de bloqueio; Impedir bloqueio de hoje</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="appBlock">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xE771;</fluent-icon>
+          <div>
+            <p>Personalização</p>
+            <p textType="caption">Deixe o aplicativo com sua cara</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="appBlock">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xE713;</fluent-icon>
+          <div>
+            <p>Configurações</p>
+            <p textType="caption">Altere configurações como senha, modo de comportamento do aplicativo, contagem,
+              objetivo do aplicativo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="appBlock">
+        <div class="block-icon-title" id="devKeysMenu">
+          <fluent-icon iconsize="24">&#xE943;</fluent-icon>
+          <div>
+            <p>DevKeys</p>
+            <p textType="caption">Configurações de desenvolvedor</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="appSubBlock" id="devKeysComp">
+        <div class="subBlockItem">
+          <div>
+            <p textType="body">Abrir Developer Tools</p>
+          </div>
+          <fluent-icon iconsize="24" id="iconOpenDevTools">&#xE8A7;</fluent-icon>
+        </div>
+      </div>
+
+      <div class="appBlock">
+        <div class="block-icon-title" id="infoMenu">
+          <fluent-icon iconsize="24">&#xE946;</fluent-icon>
+          <div>
+            <p>Informações</p>
+            <p textType="caption">Ver créditos, versão, atualizações; Reiniciar aplicativo</p>
+          </div>
+        </div>
+      </div>
+      <div class="appSubBlock" id="infoComp" style="display: block">
+        <div class="subBlockItem">
+          <div>
+            <p textType="body">Versão</p>
+          </div>
+          <div>
+            Canary 1
+          </div>
+        </div>
+
+        <div class="subBlockItem">
+          <div>
+            <p textType="body">Repositório GitHub</p>
+          </div>
+          <fluent-icon iconsize="24" id="openGitHubBrowser">&#xE8A7;</fluent-icon>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./script.js"></script>
+  <script src="./mouseAnimation.js"></script>
+  <!--Windows UI Links-->
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/windows-ui.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/icons/fonts/fonts.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/windows-ui.min.js"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
