@@ -32,118 +32,7 @@
 
   <!--Setup Page-->
   <section id="setupPage" style="display: none">
-    <h1 textType="title">Configurações iniciais</h1>
-    Faremos as suas configurações para que o app se torne melhor para você!
-
-    <div class="appBlock">
-      <p textType="subtitle">Com qual objetivo você usará o Meu Controle?</p>
-      <br>
-      <input type="radio" class="app-radio-button" id="defineScreenTime" name="appObjetive">
-      <label for="defineScreenTime">Para definir tempo de tela</label>
-      <br><br>
-      <input type="radio" class="app-radio-button" id="defineControl" name="appObjetive">
-      <label for="defineControl">Para ter o controle de quanto tempo uso meu computador</label>
-      <button class="app-btn" data-win-toggle="modal" data-win-target="#MyModal">
-        <span>Open Alert Default</span>
-      </button>
-    </div>
-
-    <!--IF time screen-->
-    <div id="timeScreenSettings" style="display: none;">
-      <div class="appBlock">
-        <p textType="subtitle">Qual seria o seu tempo de uso diário?</p>
-        <br>
-        <label for="hours">Horas:</label>
-        <div class="app-input-container">
-          <input class="app-input-text" type="number" id="hours">
-        </div>
-        <br><br>
-        <label for="minutes">Minutos:</label>
-        <div class="app-input-container">
-          <input class="app-input-text" type="number" id="minutes">
-        </div>
-      </div>
-
-      <div class="appBlock">
-        <p textType="subtitle">Gostaria de inserir uma senha para modificar as configurações?</p>
-        <br>
-        <input type="radio" class="app-radio-button" id="definePassword" name="isPassword">
-        <label for="definePassword" style="margin-right: 20px;">Sim</label>
-        <input type="radio" class="app-radio-button" id="notDefinePassword" name="isPassword">
-        <label for="notDefinePassword">Não</label>
-        <div id="passwordYes" style="display: none">
-          <br><br>
-          <label for="userPassword">Defina sua senha:</label>
-          <div class="app-input-container" id="contPass1">
-            <input class="app-input-text" type="password" id="userPassword">
-          </div>
-          <br><br>
-          <label for="userPassword2">Faça ela memorável, escreva novamente:</label>
-          <div class="app-input-container" id="contPass2">
-            <input class="app-input-text" type="password" id="userPassword2">
-          </div>
-        </div>
-      </div>
-
-      <div class="alignButtonEnd">
-        <button class="app-btn app-btn-primary" id="endScreenTime">
-          <span>Finalizar</span>
-        </button>
-      </div>
-    </div>
-    <!--IF Control-->
-    <div id="controlSettings" style="display: none;">
-      <div class="appBlock">
-        <p textType="subtitle">Como gostaria que o aplicativo se comportasse?</p>
-        <br>
-        <input type="radio" class="app-radio-button" id="microPopup" name="appBehavior">
-        <label for="microPopup">Como um pequeno popup no canto inferior direito</label>
-        <br><br>
-        <input type="radio" class="app-radio-button" id="totalHide" name="appBehavior">
-        <label for="totalHide">Apenas rodar no fundo</label>
-        <br><br>
-        <input type="radio" class="app-radio-button" id="showTaskbar" name="appBehavior">
-        <label for="showTaskbar">Aparecer na barra de tarefas do sistema</label>
-      </div>
-
-      <div class="appBlock">
-        <p textType="subtitle">Como será o modo de apresentação dos dados?</p>
-        <br>
-        <input type="radio" class="app-radio-button" id="normalStyle" name="dataStyle">
-        <label for="normalStyle">Modo normal</label>
-        <br><br>
-        <input type="radio" class="app-radio-button" id="simpleStyle" name="dataStyle">
-        <label for="simpleStyle">Modo simples</label>
-      </div>
-
-      <div class="alignButtonEnd">
-        <button class="app-btn app-btn-primary">
-          <span>Finalizar</span>
-        </button>
-      </div>
-    </div>
-
-    <!--Alert-->
-    <div class="app-alert" id="MyModal" data-win-toggle="modal" data-win-target="#MyModal" tabindex="-1">
-      <div class="app-alert-modal" aria-modal="true" role="dialog">
-        <div class="app-alert-header">
-          <h1>Alert</h1>
-          <div class="app-alert-message">
-            <div class="dialogInfo">As senhas não combinam!</div>
-            <div class="dialogInfo">Insira uma hora para bloquear</div>
-            <div class="dialogInfo">Insira uma hora para desbloquear</div>
-            <div class="dialogInfo">Defina uma senha</div>
-            <div class="dialogInfo">Selecione uma das opções sobre a senha</div>
-          </div>
-        </div>
-        <div class="app-alert-footer">
-          <button class="app-btn app-btn-primary"
-            data-win-toggle="modal" data-win-target="#MyModal">
-            <span>OK to Close</span>
-          </button>
-        </div>
-      </div>
-    </div>
+   <h1>Nada para ver aqui, considere apertar as teclas Ctrl (ou Command), Shift e R</h1>
   </section>
 
   <!--User Page-->
@@ -228,7 +117,7 @@
             <p>DevKeys</p>
             <p textType="caption">Configurações de desenvolvedor</p>
           </div>
-
+          <fluent-icon iconsize="24" class="alertExpose" id="exposeDevKeys">&#xE70D;</fluent-icon>
         </div>
       </div>
       <div class="appSubBlock" id="devKeysComp">
@@ -247,9 +136,10 @@
             <p>Informações</p>
             <p textType="caption">Ver créditos, versão, atualizações; Reiniciar aplicativo</p>
           </div>
+          <fluent-icon iconsize="24" class="alertExpose" id="exposeInfo">&#xE70D;</fluent-icon>
         </div>
       </div>
-      <div class="appSubBlock" id="infoComp" style="display: block">
+      <div class="appSubBlock" id="infoComp">
         <div class="subBlockItem">
           <div>
             <p textType="body">Versão</p>
@@ -264,6 +154,35 @@
             <p textType="body">Repositório GitHub</p>
           </div>
           <fluent-icon iconsize="24" id="openGitHubBrowser">&#xE8A7;</fluent-icon>
+        </div>
+
+        <div class="subBlockItem">
+          <p textType="body">Créditos</p>
+          <button class="app-btn app-btn-primary" data-win-toggle="modal" data-win-target="#CreditsModal">
+            <span>Ver créditos</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!--Credits alert-->
+    <div class="app-alert" id="CreditsModal" data-win-toggle="modal" data-win-target="#CreditsModal" tabindex="-1">
+      <div class="app-alert-modal" aria-modal="true" role="dialog">
+        <div class="app-alert-header">
+          <p textType="title">Créditos</p>
+          <br>
+          Desenvolvimento do aplicativo: IgorSilva-S;
+          <br><br>
+          Interface do aplicativo: IgorSilva-S, virtualvivek;
+          <br><br>
+          Ícone: IgorSilva-S
+          <br>
+        </div>
+        <div class="app-alert-footer">
+          <button class="app-btn app-btn-primary"
+            data-win-toggle="modal" data-win-target="#CreditsModal">
+            <span>OK to Close</span>
+          </button>
         </div>
       </div>
     </div>
