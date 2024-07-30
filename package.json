@@ -30,6 +30,7 @@
     "@fluentui/web-components": "^2.6.1",
     "electron-reloader": "^1.2.3",
     "electron-squirrel-startup": "^1.0.1",
+    "mica-electron": "^1.5.15",
     "windows-ui-fabric": "^4.0.2"
   }
 }

@@ -31,8 +31,10 @@
   </section>
 
   <!--Setup Page-->
-  <section id="setupPage" style="display: none">
-   <h1>Nada para ver aqui, considere apertar as teclas Ctrl (ou Command), Shift e R</h1>
+  <section class="setupPage" id="setupPage" style="display: none">
+   <div class="setupBlock">
+    <h1 textType="title">Para qual fim você usará o app?</h1>
+   </div>
   </section>
 
   <!--User Page-->
@@ -67,6 +69,8 @@
       </div>
     </div>
     <div class="roundCorner" id="roundCorner"></div>
+    <div class="leftCorner" id="leftCorner"></div>
+    <div class="rightCorner" id="rightCorner"></div>
 
     <div class="itemsContainer" id="items">
       <div class="appBlock">
@@ -79,13 +83,45 @@
         </div>
       </div>
 
-      <div class="appBlock">
+      <div class="appBlock" id="lockDeviceMenu">
         <div class="block-icon-title">
           <fluent-icon iconsize="24">&#xEE3F;</fluent-icon>
           <div>
             <p>Bloqueio de tela</p>
-            <p textType="caption">Mudar tempo, hora de dormir, modo de bloqueio; Impedir bloqueio de hoje</p>
+            <p textType="caption">Mudar tempo, hora de dormir; Impedir bloqueio de hoje; Permitir acessos emergenciais</p>
           </div>
+          <fluent-icon iconsize="24" class="alertExpose" id="exposeLockDevice">&#xE70D;</fluent-icon>
+        </div>
+      </div>
+      <div class="appSubBlock" id="lockDeviceComp">
+        <div class="subBlockItem">
+          Alterar horário de dormir
+          <button class="app-btn app-btn-primary">Alterar</button>
+        </div>
+        <div class="subBlockItem">
+          Alterar tempo disponível de tela
+          <button class="app-btn app-btn-primary">Alterar</button>
+        </div>
+        <div class="subBlockItem">
+          Bloqueio de hoje
+          <label class="app-switch">
+            <input type="checkbox" checked />
+            <div class="app-switch-view"></div>
+          </label>
+        </div>
+        <div class="subBlockItem">
+          Acesso emergencial
+          <label class="app-switch">
+            <input type="checkbox" checked />
+            <div class="app-switch-view"></div>
+          </label>
+        </div>
+        <div class="subBlockItem">
+          Bloquear alterações de tempo sem senha
+          <label class="app-switch">
+            <input type="checkbox" checked />
+            <div class="app-switch-view"></div>
+          </label>
         </div>
       </div>
 
@@ -127,6 +163,12 @@
           </div>
           <fluent-icon iconsize="24" id="iconOpenDevTools">&#xE8A7;</fluent-icon>
         </div>
+        <div class="subBlockItem">
+          Spawnar uma notificação
+          <button class="app-btn" id="devKeysNotify">
+            Notificar
+          </button>
+        </div>
       </div>
 
       <div class="appBlock">
@@ -145,7 +187,7 @@
             <p textType="body">Versão</p>
           </div>
           <div>
-            Canary 1
+            Canary 2
           </div>
         </div>
 

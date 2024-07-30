@@ -1,4 +1,5 @@
-const { app, BrowserWindow, ipcMain, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, shell, Notification } = require('electron');
+const { PARAMS, VALUE,  MicaBrowserWindow, IS_WINDOWS_11, WIN10 } = require('mica-electron');
 const path = require('node:path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -11,6 +12,7 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    show: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
@@ -22,7 +24,7 @@ const createWindow = () => {
       symbolColor: "#f0f8ff",
       height: 40,
     },
-   icon: 'src/icon/icon.ico'
+   icon: 'src/icon/icon.ico',
     //skipTaskbar: true,
   });
 
@@ -34,7 +36,7 @@ const createWindow = () => {
   //mainWindow.webContents.openDevTools();
   ipcMain.on('lockDevice', () => {
     mainWindow.setAlwaysOnTop(true, 'screen-saver');
-    mainWindow.setFullScreen('true')
+    mainWindow.setFullScreen('true');
   })
 
   ipcMain.on('openDevTools', () => {
@@ -48,20 +50,72 @@ const createWindow = () => {
   })
 };
 
+const createMicaWindow = () => {
+
+  const micaMainWindow = new MicaBrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
+      contextIsolation: false
+    },
+    titleBarStyle: "hidden",
+    titleBarOverlay: {
+      color: '#0000',
+      symbolColor: "#f0f8ff",
+      height: 40,
+    },
+   icon: 'src/icon/icon.ico',
+   transparent: false,
+    //skipTaskbar: true,
+  });
+
+  micaMainWindow.setAutoTheme();
+  micaMainWindow.setRoundedCorner();
+  micaMainWindow.setMicaEffect();
+
+  micaMainWindow.loadFile(path.join(__dirname, 'index.html'));
+
+  ipcMain.on('lockDevice', () => {
+    micaMainWindow.setAlwaysOnTop(true, 'screen-saver');
+    micaMainWindow.setFullScreen('true');
+  })
+
+  ipcMain.on('openDevTools', () => {
+    micaMainWindow.webContents.openDevTools();
+  })
+
+  micaMainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.shift && input.key.toLowerCase() === 'i') {
+      event.preventDefault()
+    }
+  })
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createWindow();
+  if (!IS_WINDOWS_11) {
+    createWindow();
+  } else {
+    createMicaWindow()
+  }
 
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
+      if (!IS_WINDOWS_11) {
+        createWindow();
+      } else {
+        createMicaWindow()
+      }
     }
   });
 });
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
@@ -77,10 +131,31 @@ app.on('window-all-closed', () => {
 try {
 	require('electron-reloader')(module);
 } catch {}
-const { systemPreferences } = require('electron')
-const color = systemPreferences.getAccentColor()
-console.log(color)
 
 ipcMain.on('openGitHubInBrowser', () => {
   shell.openExternal("https://github.com/IgorSilva-S/MeuControle");
 })
+
+app.setAppUserModelId(process.execPath)
+
+const NOTIFICATION_TITLE = 'Meu Controle - DevKeys'
+const NOTIFICATION_BODY = 'Notificação de teste, enviada pelo DevKeys, tudo funcionando corretamente!'
+
+function showNotification () {
+  new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
+}
+
+ipcMain.on('showDevKeysNotification', showNotification)
+
+/*const exec = require('child_process').exec;
+
+function execute(command, callback) {
+    exec(command, (error, stdout, stderr) => { 
+        callback(stdout); 
+    });
+};
+
+// call the function
+execute('taskkill -f -im "explorer.exe"', (output) => {
+    console.log(output);
+});*/

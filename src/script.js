@@ -3,12 +3,24 @@ const { ipcRenderer } = require("electron")
 document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('WinAppLocalTheme')
 })
+const os = require('os')
+let osVersion = os.version()
+let is11 = osVersion.includes('Windows 11')
 
+// Electron: Check is os == Win11
+if (is11) {
+    document.body.className = 'micaVersion'
+}
 
 // DevKeys integrated with Electron
 const iconOpenDevTools = document.getElementById('iconOpenDevTools')
 iconOpenDevTools.addEventListener('click', () => {
     ipcRenderer.send('openDevTools')
+})
+
+const sendNotification = document.getElementById('devKeysNotify')
+sendNotification.addEventListener('click', () => {
+    ipcRenderer.send('showDevKeysNotification')
 })
 
 // LocalStorage automation
@@ -18,10 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('acrylicPart').setAttribute('style', 'height: 132px; justify-content: flex-start; box-sizing: border-box; padding-left: 100px; padding-top: 0')
         document.getElementById('myPageTitle').style.display = 'none'
         document.getElementById('roundCorner').style.top = '120px'
+        document.getElementById('leftCorner').style.top = '132px'
+        document.getElementById('rightCorner').style.top = '132px'
         document.getElementById('textScreenTime').style.display = 'none'
         document.getElementById('screenTimeWatch').setAttribute('textType', 'titleLarge')
         document.getElementById('iconTimeButton').innerHTML = '&#xE8C4;'
-        document.getElementById('items').setAttribute('style', 'height: calc(100vh - 130px); top: 120px;')
+        document.getElementById('items').setAttribute('style', 'height: calc(100vh - 130px); top: 132px;')
         isTimeSizeSmall = true
     }
 })
@@ -136,10 +150,12 @@ changeTimeVisibility.addEventListener('click', () => {
         document.getElementById('acrylicPart').setAttribute('style', 'height: 132px; justify-content: flex-start; box-sizing: border-box; padding-left: 100px; padding-top: 0')
         document.getElementById('myPageTitle').style.display = 'none'
         document.getElementById('roundCorner').style.top = '120px'
+        document.getElementById('leftCorner').style.top = '132px'
+        document.getElementById('rightCorner').style.top = '132px'
         document.getElementById('textScreenTime').style.display = 'none'
         document.getElementById('screenTimeWatch').setAttribute('textType', 'titleLarge')
         document.getElementById('iconTimeButton').innerHTML = '&#xE8C4;'
-        document.getElementById('items').setAttribute('style', 'height: calc(100vh - 130px); top: 120px;')
+        document.getElementById('items').setAttribute('style', 'height: calc(100vh - 130px); top: 132px;')
         isTimeSizeSmall = true
         localStorage.setItem('isTimeSizeSmall', true)
     } else {
@@ -147,6 +163,8 @@ changeTimeVisibility.addEventListener('click', () => {
         document.getElementById('acrylicPart').removeAttribute('style')
         document.getElementById('myPageTitle').removeAttribute('style')
         document.getElementById('roundCorner').removeAttribute('style')
+        document.getElementById('leftCorner').removeAttribute('style')
+        document.getElementById('rightCorner').removeAttribute('style')
         document.getElementById('textScreenTime').removeAttribute('style')
         document.getElementById('screenTimeWatch').setAttribute('textType', 'display')
         document.getElementById('iconTimeButton').innerHTML = '&#xE8C5;'
@@ -157,9 +175,23 @@ changeTimeVisibility.addEventListener('click', () => {
 })
 
 // User Page - Menus
-const devToolsHeader = document.getElementById('devKeysMenu')
+const lockDeviceHeader = document.getElementById('lockDeviceMenu')
+let isLockDeviceMenuOpened = false
+lockDeviceHeader.addEventListener('click', () => {
+    if (!isLockDeviceMenuOpened) {
+        document.getElementById('lockDeviceComp').style.display = 'block'
+        document.getElementById('exposeLockDevice').style.rotate = '180deg'
+        isLockDeviceMenuOpened = true
+    } else {
+        document.getElementById('lockDeviceComp').removeAttribute('style')
+        document.getElementById('exposeLockDevice').removeAttribute('style')
+        isLockDeviceMenuOpened = false
+    }
+})
+
+const devKeysHeader = document.getElementById('devKeysMenu')
 let isDevKeysMenuOpened = false
-devToolsHeader.addEventListener('click', () => {
+devKeysHeader.addEventListener('click', () => {
     if (!isDevKeysMenuOpened) {
         document.getElementById('devKeysComp').style.display = 'block'
         document.getElementById('exposeDevKeys').style.rotate = '180deg'
