@@ -181,10 +181,12 @@ lockDeviceHeader.addEventListener('click', () => {
     if (!isLockDeviceMenuOpened) {
         document.getElementById('lockDeviceComp').style.display = 'block'
         document.getElementById('exposeLockDevice').style.rotate = '180deg'
+        lockDeviceHeader.classList.add('openedBlock')
         isLockDeviceMenuOpened = true
     } else {
         document.getElementById('lockDeviceComp').removeAttribute('style')
         document.getElementById('exposeLockDevice').removeAttribute('style')
+        lockDeviceHeader.classList.remove('openedBlock')
         isLockDeviceMenuOpened = false
     }
 })
@@ -195,10 +197,12 @@ devKeysHeader.addEventListener('click', () => {
     if (!isDevKeysMenuOpened) {
         document.getElementById('devKeysComp').style.display = 'block'
         document.getElementById('exposeDevKeys').style.rotate = '180deg'
+        devKeysHeader.classList.add('openedBlock')
         isDevKeysMenuOpened = true
     } else {
         document.getElementById('devKeysComp').removeAttribute('style')
         document.getElementById('exposeDevKeys').removeAttribute('style')
+        devKeysHeader.classList.remove('openedBlock')
         isDevKeysMenuOpened = false
     }
 })
@@ -209,10 +213,12 @@ infoHeader.addEventListener('click', () => {
     if (!isInfoMenuOpened) {
         document.getElementById('infoComp').style.display = 'block'
         document.getElementById('exposeInfo').style.rotate = '180deg'
+        infoHeader.classList.add('openedBlock')
         isInfoMenuOpened = true
     } else {
         document.getElementById('infoComp').removeAttribute('style')
         document.getElementById('exposeInfo').removeAttribute('style')
+        infoHeader.classList.remove('openedBlock')
         isInfoMenuOpened = false
     }
 })
