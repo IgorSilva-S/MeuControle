@@ -49,14 +49,6 @@ const createWindow = () => {
     mainWindow.webContents.openDevTools();
   })
 
-  ipcMain.on('killExplorer', () => {
-    exec("taskkill -f -im explorer.exe")
-  })
-
-  ipcMain.on('startExplorer', () => {
-    exec("explorer.exe")
-  })
-
   mainWindow.webContents.on('before-input-event', (event, input) => {
     if (input.control && input.shift && input.key.toLowerCase() === 'i') {
       event.preventDefault()
@@ -94,7 +86,6 @@ const createMicaWindow = () => {
   ipcMain.on('lockDevice', () => {
     micaMainWindow.setAlwaysOnTop(true, 'screen-saver');
     micaMainWindow.setFullScreen('true');
-    execute('taskkill -f -im "explorer.exe"');
   })
 
   ipcMain.on('openDevTools', () => {
@@ -106,6 +97,9 @@ const createMicaWindow = () => {
       event.preventDefault()
     }
   })
+
+  micaMainWindow.minimize()
+  micaMainWindow.restore()
 }
 
 // This method will be called when Electron has finished
@@ -163,3 +157,10 @@ function showNotification() {
 ipcMain.on('showDevKeysNotification', showNotification)
 // call the function
 
+  ipcMain.on('killExplorer', () => {
+    exec('taskkill -f -im "explorer.exe"')
+  })
+
+  ipcMain.on('startExplorer', () => {
+    exec("explorer.exe")
+  })

@@ -93,10 +93,45 @@ section {
 }
 
 .setupBlock {
-  width: 80vw;
-  height: 80vh;
+  max-width: 1200px;
   border-radius: 8px;
-  background-color: #191919;
+  min-width: 480px;
+  min-height: 760px;
+  background-color: #fbfcfb;
+  border: 1px solid #e6e4e8;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+/*Button height: 112px; width: 479px*/ 
+
+.iconContainer {
+  width: 600px;
+  height: 760px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconContainer div {
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(./icon/setupIcon.png);
+}
+
+.settingsContainer {
+  width: 600px;
+  height: 760px;
+  box-sizing: border-box;
+  padding: 5px;
+  padding-top: 30px;
+}
+
+.setupBlock h1 {
+  text-align: center;
 }
 
 .appBlock {
@@ -356,7 +391,8 @@ section {
     border-color: #1d1d1d;
   }
 
-  .micaVersion .appBlock {
+  .micaVersion .appBlock,
+  .micaVersion .setupBlock {
     background-color: #2b2b2baa;
     border: 1px solid #1d1d1daa;
   }
@@ -381,5 +417,12 @@ section {
 
   .mouseMoveAcrylic {
     background-color: #0000;
+  }
+}
+
+@media (max-width: 800px) {
+  .iconContainer div {
+    width: 300px;
+    height: 300px;
   }
 }

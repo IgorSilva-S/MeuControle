@@ -237,3 +237,12 @@ infoHeader.addEventListener('click', () => {
 document.getElementById('openGitHubBrowser').addEventListener('click', () => {
     ipcRenderer.send('openGitHubInBrowser')
 })
+
+setInterval(() => {
+    let isDark = window.matchMedia("(prefers-color-scheme: dark)")
+    if (isDark.matches) {
+        setDarkScheme()
+    } else {
+        setLightScheme()
+    }
+}, 1);

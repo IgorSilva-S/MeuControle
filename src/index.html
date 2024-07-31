@@ -32,9 +32,17 @@
 
   <!--Setup Page-->
   <section class="setupPage" id="setupPage" style="display: none">
-   <div class="setupBlock">
-    <h1 textType="title">Para qual fim você usará o app?</h1>
-   </div>
+    <div class="setupBlock">
+      <div class="iconContainer">
+        <div></div>
+      </div>
+      <div class="settingsContainer">
+        <h1 textType="title">Para qual fim você usará o app?</h1>
+        <br>
+        <input type="radio" class="app-radio-button" name="appGoal">
+        <input type="radio" class="app-radio-button" name="appGoal">
+      </div>
+    </div>
   </section>
 
   <!--User Page-->
@@ -88,7 +96,8 @@
           <fluent-icon iconsize="24">&#xEE3F;</fluent-icon>
           <div>
             <p>Bloqueio de tela</p>
-            <p textType="caption">Mudar tempo, hora de dormir; Impedir bloqueio de hoje; Permitir acessos emergenciais</p>
+            <p textType="caption">Mudar tempo, hora de dormir; Impedir bloqueio de hoje; Permitir acessos emergenciais
+            </p>
           </div>
           <fluent-icon iconsize="24" class="alertExpose" id="exposeLockDevice">&#xE70D;</fluent-icon>
         </div>
@@ -96,11 +105,11 @@
       <div class="appSubBlock" id="lockDeviceComp">
         <div class="subBlockItem">
           Alterar horário de dormir
-          <button class="app-btn app-btn-primary">Alterar</button>
+          <button class="app-btn">Alterar</button>
         </div>
         <div class="subBlockItem">
           Alterar tempo disponível de tela
-          <button class="app-btn app-btn-primary">Alterar</button>
+          <button class="app-btn">Alterar</button>
         </div>
         <div class="subBlockItem">
           Bloqueio de hoje
@@ -212,7 +221,7 @@
 
         <div class="subBlockItem lastItem">
           <p textType="body">Créditos</p>
-          <button class="app-btn app-btn-primary" data-win-toggle="modal" data-win-target="#CreditsModal">
+          <button class="app-btn" data-win-toggle="modal" data-win-target="#CreditsModal">
             <span>Ver créditos</span>
           </button>
         </div>
@@ -233,8 +242,7 @@
           <br>
         </div>
         <div class="app-alert-footer">
-          <button class="app-btn app-btn-primary"
-            data-win-toggle="modal" data-win-target="#CreditsModal">
+          <button class="app-btn app-btn-primary" data-win-toggle="modal" data-win-target="#CreditsModal">
             <span>OK to Close</span>
           </button>
         </div>
@@ -244,16 +252,11 @@
 
   <script src="./script.js"></script>
   <script src="./mouseAnimation.js"></script>
-  <!--Windows UI Links-->
+  <!--Windows UI Locak Links-->
   <!-- CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/windows-ui.min.css" rel="stylesheet"
-    crossorigin="anonymous">
-  <!-- Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/icons/fonts/fonts.min.css" rel="stylesheet"
-    crossorigin="anonymous">
+  <link href="./WinUI/windows-ui.min.css" rel="stylesheet" crossorigin="anonymous">
   <!-- JS -->
-  <script src="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/windows-ui.min.js"
-    crossorigin="anonymous"></script>
+  <script src="./WinUI/windows-ui.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
