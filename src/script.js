@@ -23,6 +23,16 @@ sendNotification.addEventListener('click', () => {
     ipcRenderer.send('showDevKeysNotification')
 })
 
+const killExplorer = document.getElementById('killExplorer')
+killExplorer.addEventListener('click', () => {
+    ipcRenderer.send('killExplorer')
+})
+
+const startExplorer = document.getElementById('startExplorer')
+startExplorer.addEventListener('click', () => {
+    ipcRenderer.send('startExplorer')
+})
+
 // LocalStorage automation
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('isTimeSizeSmall') == 'true') {

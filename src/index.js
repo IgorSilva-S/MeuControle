@@ -1,5 +1,5 @@
 const { app, BrowserWindow, ipcMain, shell, Notification } = require('electron');
-const { PARAMS, VALUE,  MicaBrowserWindow, IS_WINDOWS_11, WIN10 } = require('mica-electron');
+const { PARAMS, VALUE, MicaBrowserWindow, IS_WINDOWS_11, WIN10 } = require('mica-electron');
 const path = require('node:path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -7,12 +7,18 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+const exec = require('child_process').exec;
+
+function execute(command) {
+    exec(command);
+};
+
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    show: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
@@ -24,7 +30,7 @@ const createWindow = () => {
       symbolColor: "#f0f8ff",
       height: 40,
     },
-   icon: 'src/icon/icon.ico',
+    icon: 'src/icon/icon.ico',
     //skipTaskbar: true,
   });
 
@@ -43,7 +49,15 @@ const createWindow = () => {
     mainWindow.webContents.openDevTools();
   })
 
-    mainWindow.webContents.on('before-input-event', (event, input) => {
+  ipcMain.on('killExplorer', () => {
+    exec("taskkill -f -im explorer.exe")
+  })
+
+  ipcMain.on('startExplorer', () => {
+    exec("explorer.exe")
+  })
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
     if (input.control && input.shift && input.key.toLowerCase() === 'i') {
       event.preventDefault()
     }
@@ -66,8 +80,8 @@ const createMicaWindow = () => {
       symbolColor: "#f0f8ff",
       height: 40,
     },
-   icon: 'src/icon/icon.ico',
-   transparent: false,
+    icon: 'src/icon/icon.ico',
+    transparent: false,
     //skipTaskbar: true,
   });
 
@@ -80,6 +94,7 @@ const createMicaWindow = () => {
   ipcMain.on('lockDevice', () => {
     micaMainWindow.setAlwaysOnTop(true, 'screen-saver');
     micaMainWindow.setFullScreen('true');
+    execute('taskkill -f -im "explorer.exe"');
   })
 
   ipcMain.on('openDevTools', () => {
@@ -97,10 +112,10 @@ const createMicaWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  if (!IS_WINDOWS_11) {
-    createWindow();
+  if (IS_WINDOWS_11) {
+    createMicaWindow();
   } else {
-    createMicaWindow()
+    createWindow()
   }
 
   // On OS X it's common to re-create a window in the app when the
@@ -129,8 +144,8 @@ app.on('window-all-closed', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 try {
-	require('electron-reloader')(module);
-} catch {}
+  require('electron-reloader')(module);
+} catch { }
 
 ipcMain.on('openGitHubInBrowser', () => {
   shell.openExternal("https://github.com/IgorSilva-S/MeuControle");
@@ -141,21 +156,10 @@ app.setAppUserModelId(process.execPath)
 const NOTIFICATION_TITLE = 'Meu Controle - DevKeys'
 const NOTIFICATION_BODY = 'Notificação de teste, enviada pelo DevKeys, tudo funcionando corretamente!'
 
-function showNotification () {
+function showNotification() {
   new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
 }
 
 ipcMain.on('showDevKeysNotification', showNotification)
-
-/*const exec = require('child_process').exec;
-
-function execute(command, callback) {
-    exec(command, (error, stdout, stderr) => { 
-        callback(stdout); 
-    });
-};
-
 // call the function
-execute('taskkill -f -im "explorer.exe"', (output) => {
-    console.log(output);
-});*/
+

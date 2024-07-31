@@ -327,6 +327,7 @@ section {
   width: calc(100vw - 40px);
   left: 20px;
   top: 440px;
+  padding-bottom: 30px;
 }
 
 .block-icon-title {
