@@ -74,6 +74,10 @@ section {
   flex-direction: column;
 }
 
+.setupPage {
+  flex-direction: row;
+}
+
 .userPage {
   margin-top: 0;
   height: 0;
@@ -93,45 +97,129 @@ section {
 }
 
 .setupBlock {
-  max-width: 1200px;
   border-radius: 8px;
   min-width: 480px;
-  min-height: 760px;
+  min-height: 700px;
   background-color: #fbfcfb;
   border: 1px solid #e6e4e8;
   overflow: hidden;
   position: relative;
   display: flex;
+  transition-duration: .2s;
 }
 
 /*Button height: 112px; width: 479px*/ 
 
-.iconContainer {
-  width: 600px;
-  height: 760px;
+.settingsContainer,
+.allSetupInfos {
+  width: 480px;
+  height: 700px;
+  box-sizing: border-box;
+  padding: 5px;
+  padding-top: 30px;
+  position: absolute;
+}
+
+.settingsContainer {
+  animation: appearPage .3s ease-out;
+}
+
+.startSettings {
+  animation: none;
+}
+
+@keyframes appearPage {
+  from {
+    margin-left: 100%;
+  } to {
+    margin-left: 0;
+  }
+}
+
+.setupBlock h1 {
+  text-align: center;
+}
+
+
+.mediaOpen {
+  width: 50px;
+  height: 80px;
+  border-radius: 0;
+  position: absolute;
+  right: -50px;
+  top: calc(50% - 40px);
+  background-color: #fbfcfb;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.iconContainer div {
-  width: 400px;
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  background-image: url(./icon/setupIcon.png);
+.mediaOpen fluent-icon {
+  transition-duration: .1s;
 }
 
-.settingsContainer {
-  width: 600px;
-  height: 760px;
-  box-sizing: border-box;
-  padding: 5px;
-  padding-top: 30px;
+.mediaOpen::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 36px solid ;
+  border-color: #fbfcfb transparent transparent transparent;
+  top: -36px;
+  rotate: 45deg;
+  left: -36px;
 }
 
-.setupBlock h1 {
-  text-align: center;
+.mediaOpen::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 36px solid ;
+  border-color: transparent transparent #fbfcfb transparent;
+  bottom: -36px;
+  rotate: -45deg;
+  left: -36px;
+}
+
+.stepsInfo {
+  margin-top: 30px;
+  padding-left: 50px;
+}
+
+.stepsButton {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.stepsSubButton {
+  position: relative;
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
+
+.stepsButton:hover::before,
+.stepsSubButton:hover::before {
+  content: '';
+  width: 3px;
+  height: 90%;
+  position: absolute;
+  left: -15px;
+  background-color: #777;
+  opacity: .5;
+  border-radius: 120px;
+  top: 5%;
+}
+
+.stepsSubButton:hover::before {
+  height: 70%;
+  top: calc(50% - 35%);
+}
+
+.stepsButton:active::before,
+.stepsSubButton:active::before {
+  background-color: var(--color-primary-adaptive);
+  opacity: 1
 }
 
 .appBlock {
@@ -212,10 +300,12 @@ section {
   border-bottom: 1px solid #e6e4e8;
 }
 
-.alignButtonEnd {
-  margin: 10px 0;
+.alignButtonsEnd {
+  position: absolute;
   display: flex;
-  justify-content: flex-end;
+  bottom: 10px;
+  right: 10px;
+  gap: 20px;
 }
 
 .alignButtonsCenter {
@@ -380,10 +470,22 @@ section {
 
 @media (prefers-color-scheme: dark) {
 
-  .appBlock {
+  .appBlock, .setupBlock {
     background-color: #2b2b2b;
     border: 1px solid #1d1d1d;
     transition-duration: .2s;
+  }
+
+  .mediaOpen {
+    background-color: #2b2b2b;
+  }
+
+  .mediaOpen::before {
+    border-color: #2b2b2b transparent transparent transparent;
+  }
+
+  .mediaOpen::after {
+    border-color:  transparent transparent #2b2b2b transparent;
   }
 
   .subBlockItem {
@@ -420,9 +522,31 @@ section {
   }
 }
 
-@media (max-width: 800px) {
-  .iconContainer div {
-    width: 300px;
-    height: 300px;
+@media (max-height: 740px) {
+  .setupBlock {
+    min-height: 500px;
+  }
+
+  .settingsContainer {
+    height: 500px;
+  }
+
+  .infoSetup {
+    position: fixed;
+    height: 100%;
+    overflow: visible;
+    border-radius: 0%;
+    top: 0;
+    left: -480px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .setupBlock {
+    min-height: 500px;
+  }
+
+  .settingsContainer {
+    height: 500px;
   }
 }

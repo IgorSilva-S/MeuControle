@@ -33,14 +33,36 @@
   <!--Setup Page-->
   <section class="setupPage" id="setupPage" style="display: none">
     <div class="setupBlock">
-      <div class="iconContainer">
-        <div></div>
-      </div>
-      <div class="settingsContainer">
+      <div class="settingsContainer startSettings">
         <h1 textType="title">Para qual fim você usará o app?</h1>
         <br>
-        <input type="radio" class="app-radio-button" name="appGoal">
-        <input type="radio" class="app-radio-button" name="appGoal">
+        <input type="radio" class="app-radio-button" name="appGoal" id="controlScreen">
+        <label for="controlScreen">Controlar o meu uso de tela</label>
+        <br><br>
+        <input type="radio" class="app-radio-button" name="appGoal" id="screenTimer">
+        <label for="screenTimer">Usar apenas um tempo específico de tela</label>
+        <br><br>
+        <input type="radio" class="app-radio-button" name="appGoal" id="sleepTime">
+        <label for="sleepTime">Para definir um horário para dormir</label>
+        <br><br>
+        <input type="radio" class="app-radio-button" name="appGoal" id="UDop2a3">
+        <label for="UDop2a3">Definir tempo de uso e hora de dormir</label>
+
+        <div class="alignButtonsEnd">
+          <button class="app-btn app-btn-primary">Prosseguir</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="setupBlock infoSetup" id="mediaBar">
+      <div class="mediaOpen" id="openMediaBar">
+        <fluent-icon iconsize="32" id="alertOpenMediaBar">&#xE76C;</fluent-icon>
+      </div>
+      <div class="allSetupInfos">
+        <h1 textType="title">Passos</h1>
+        <div class="stepsInfo" id="stepsInfo">
+          <p textType="bodyStrong" class="stepsButton">Definição de Uso</p>
+        </div>
       </div>
     </div>
   </section>

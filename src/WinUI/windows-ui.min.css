@@ -1378,6 +1378,12 @@ button:focus-visible,
     font-size: 24px
 }
 
+.app-btn-text {
+    background-color: transparent;
+    border: none;
+    color: var(--color-primary-adaptive);
+}
+
 body.dark-theme .app-btn-primary,
 body.dark-theme .app-btn-danger,
 body.dark-theme .app-btn-success {
@@ -1390,7 +1396,8 @@ body.dark-theme .app-btn-success {
     position: relative;
     transition: 0.2s ease;
     -moz-appearance: none;
-    -webkit-appearance: none
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .app-checkbox:hover {

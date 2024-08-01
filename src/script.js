@@ -150,7 +150,27 @@ noSetupButton.addEventListener('click', () => {
     userPage.removeAttribute('style')
 })
 
-// Setup page - Chooses
+// Setup page
+const mediaBar = document.getElementById('mediaBar')
+const mediaButton = document.getElementById('openMediaBar')
+let isMediaBarOpened = false
+mediaButton.addEventListener('click', () => {
+    if (!isMediaBarOpened) {
+        document.getElementById('alertOpenMediaBar').style.rotate = '180deg';
+        mediaBar.style.left = '0'
+        isMediaBarOpened = true
+    } else {
+        document.getElementById('alertOpenMediaBar').removeAttribute('style')
+        mediaBar.removeAttribute('style')
+        isMediaBarOpened = false
+    }
+})
+
+//Setup Page - Navigation
+const UD_A1 = document.getElementById('controlScreen')
+const UD_A2 = document.getElementById('screenTimer')
+const UD_A3 = document.getElementById('sleepTime')
+const UD_A2A3 = document.getElementById('UDop2a3')
 
 // User Page - Change time anim size
 let isTimeSizeSmall = false
