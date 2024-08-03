@@ -655,8 +655,8 @@ p.app-para-light {
 
 .app-navbar-wrap .app-navbar-toggler::after {
     font-size: 22px;
-    content: "\f106";
-    font-family: icons10
+    content: "\E700";
+    font-family: "Segoe Fluent Icons"
 }
 
 .app-navbar-wrap .app-badge {
@@ -723,9 +723,9 @@ p.app-para-light {
 
 .app-navbar-submenu .app-navbar-submenu-title::after {
     font-size: 14px;
-    content: "\f10c";
+    content: "\E70D";
     align-self: center;
-    font-family: icons10;
+    font-family: "Segoe Fluent Icons";
     transform-origin: center;
     transition: transform 167ms cubic-bezier(0, 0, 0, 1)
 }
@@ -810,7 +810,7 @@ p.app-para-light {
     z-index: 2;
     content: "\f1b9";
     margin-right: -35px;
-    font-family: icons10
+    font-family: "Segoe Fluent Icons"
 }
 
 .app-navbar-wrap .app-search-dialog-trigger {
@@ -879,7 +879,7 @@ p.app-para-light {
 input+.app-navbar-theme-switch-icon:before {
     font-size: 22px;
     content: "\f120";
-    font-family: icons10
+    font-family: "Segoe Fluent Icons"
 }
 
 input+.app-navbar-theme-switch-icon::after {
@@ -1072,7 +1072,7 @@ input:checked+.app-navbar-theme-switch-icon:after {
     content: "\f10c";
     margin-left: 5px;
     align-self: center;
-    font-family: icons10;
+    font-family: "Segoe Fluent Icons";
     transform-origin: center;
     transition: transform 167ms cubic-bezier(0, 0, 0, 1)
 }
@@ -1252,7 +1252,7 @@ input:checked+.app-navbar-theme-switch-icon:after {
     padding: 5px;
     border-radius: 4px;
     font-size: 24px;
-    font-family: icons10;
+    font-family: "Segoe Fluent Icons";
     content: "\f116"
 }
 
@@ -1468,7 +1468,7 @@ ul.app-cmdbar-menu-list.left-justify {
 ul.app-cmdbar-menu-list [data-win-toggle="dropdown"]::after {
     line-height: 0;
     content: "\f10e";
-    font-family: icons10;
+    font-family: "Segoe Fluent Icons";
     padding-inline-start: 5px
 }
 
@@ -1542,7 +1542,7 @@ ul.app-cmdbar-menu-list .cmdbar-submenu {
     font-size: 11px;
     content: "\f12e";
     font-weight: 800;
-    font-family: icons10;
+    font-family: "Segoe Fluent Icons";
     position: relative;
     transition: all 0.2s;
     color: var(--color-background-default);
@@ -1767,8 +1767,8 @@ body.dark-theme .app-dialog .app-dialog-modal {
 }
 
 .app-input-end-content [data-win-clear="text"]::after {
-    content: "\f116";
-    font-family: icons10
+    content: "\E894";
+    font-family: "Segoe Fluent Icons"
 }
 
 .app-input-end-content .app-loader-busy {
@@ -1776,27 +1776,27 @@ body.dark-theme .app-dialog .app-dialog-modal {
 }
 
 .app-input-container [data-win-toggle="password"]::after {
-    content: "\f1db";
-    font-family: icons10
+    content: "\E9A9";
+    font-family: "Segoe Fluent Icons"
 }
 
 .app-input-container input[type="password"]+div [data-win-toggle="password"]::after {
-    content: "\f189"
+    content: "\E9A8"
 }
 
 .app-input-search-box::after {
     z-index: 1;
-    content: "\f1b9";
+    content: "\E721";
     margin-left: -28px;
     align-self: center;
-    font-family: icons10;
+    font-family: "Segoe Fluent Icons";
     font-size: 16px;
     font-weight: 500
 }
 
 .app-input-search-bar button::after {
-    content: "\f1b9";
-    font-family: icons10
+    content: "\E721";
+    font-family: "Segoe Fluent Icons"
 }
 
 .app-input-search-bar,
@@ -1861,10 +1861,10 @@ body.dark-theme .app-dialog .app-dialog-modal {
     display: flex;
     line-height: 0;
     font-size: 17px;
-    content: "\f1cb";
+    content: "\E787";
     position: absolute;
     align-items: center;
-    font-family: icons10;
+    font-family: "Segoe Fluent Icons";
     pointer-events: none
 }
 
@@ -2239,10 +2239,10 @@ body.dark-theme .app-dialog .app-dialog-modal {
 .app-select-text::after {
     right: 10px;
     font-size: 14px;
-    content: "\f10c";
+    content: "\E70D";
     position: absolute;
     pointer-events: none;
-    font-family: icons10
+    font-family: "Segoe Fluent Icons"
 }
 
 .app-select-menu select {
@@ -2296,9 +2296,9 @@ body.dark-theme .app-dialog .app-dialog-modal {
 .app-select-text .app-dropdown-list-item.selected span::before {
     width: 20px;
     height: auto;
-    content: "\f12e";
+    content: "\E73E";
     position: relative;
-    font-family: "icons10";
+    font-family: "Segoe Fluent Icons";
     background: transparent
 }
 

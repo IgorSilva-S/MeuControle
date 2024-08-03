@@ -33,7 +33,7 @@
   <!--Setup Page-->
   <section class="setupPage" id="setupPage" style="display: none">
     <div class="setupBlock">
-      <div class="settingsContainer startSettings">
+      <div class="settingsContainer startSettings" id="startPage">
         <h1 textType="title">Para qual fim você usará o app?</h1>
         <br>
         <input type="radio" class="app-radio-button" name="appGoal" id="controlScreen">
@@ -49,7 +49,16 @@
         <label for="UDop2a3">Definir tempo de uso e hora de dormir</label>
 
         <div class="alignButtonsEnd">
-          <button class="app-btn app-btn-primary">Prosseguir</button>
+          <button class="app-btn app-btn-primary" id="goalToNextPage">Prosseguir</button>
+        </div>
+      </div>
+
+      <div class="settingsContainer" id="endPage" style="display: none">
+        <h1 textType="title">Configurações finalizadas!</h1>
+        <br>
+        Para alterar as configurações posteriormente, procure pelas configurações do aplicativo!
+        <div class="alignButtonsEnd">
+          <button class="app-btn app-btn-primary" id="setupToUP">Finalizar</button>
         </div>
       </div>
     </div>
@@ -127,11 +136,11 @@
       <div class="appSubBlock" id="lockDeviceComp">
         <div class="subBlockItem">
           Alterar horário de dormir
-          <button class="app-btn">Alterar</button>
+          <button class="app-btn" data-win-toggle="modal" data-win-target="#STC">Alterar</button>
         </div>
         <div class="subBlockItem">
-          Alterar tempo disponível de tela
-          <button class="app-btn">Alterar</button>
+          Alterar tempo de tela
+          <button class="app-btn" data-win-toggle="modal" data-win-target="#TimeC">Alterar</button>
         </div>
         <div class="subBlockItem">
           Bloqueio de hoje
@@ -153,6 +162,72 @@
             <input type="checkbox" checked />
             <div class="app-switch-view"></div>
           </label>
+        </div>
+      </div>
+
+      <!--App Modal to change times-->
+      <!--Sleep time modal-->
+      <div class="app-alert" id="STC" data-win-toggle="modal" data-win-target="#STC" tabindex="-1">
+        <div class="app-alert-modal" aria-modal="true" role="dialog">
+          <div class="app-alert-header">
+            <h1 textType="title">Alterar horário de dormir</h1>
+            <p textType="caption" class="app-color-danger">Essa configuração é protegida por senha</p>
+            <p textType="caption">Essa configuração pode ser alterada uma vez a cada 7 dias</p>
+            <br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="number" id="newSleepLockTime"
+                placeholder="Insira o novo horário de bloqueio (horas)" max="23" min="0">
+            </div>
+            <br><br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="number" id="newSleepUnlockTime"
+                placeholder="Insira o novo horário de desbloqueio (horas)" max="23" min="0">
+            </div>
+            <br><br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="password" id="UP_ChangeSleepTime" placeholder="Insira a sua senha">
+              <div class="app-input-end-content">
+                <button data-win-toggle="password" data-win-target="#UP_ChangeSleepTime"></button>
+              </div>
+            </div>
+            <br><br>
+          </div>
+          <div class="app-alert-footer">
+            <button class="app-btn" data-win-toggle="modal" data-win-target="#STC">Cancelar</button>
+            <button class="app-btn app-btn-primary">
+              <span>Finalizar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--All time changer-->
+
+      <div class="app-alert" id="TimeC" data-win-toggle="modal" data-win-target="#TimeC" tabindex="-1">
+        <div class="app-alert-modal" aria-modal="true" role="dialog">
+          <div class="app-alert-header">
+            <h1 textType="title">Alterar tempo de tela</h1>
+            <p textType="caption" class="app-color-danger">Essa configuração é protegida por senha</p>
+            <p textType="caption">Essa configuração pode ser alterada uma vez a cada dia</p>
+            <br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="number" id="newScreenTime"
+                placeholder="Insira o novo tempo de tela (horas)" max="23" min="0">
+            </div>
+            <br><br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="password" id="UP_ChangeScreenTime" placeholder="Insira a sua senha">
+              <div class="app-input-end-content">
+                <button data-win-toggle="password" data-win-target="#UP_ChangeScreenTime"></button>
+              </div>
+            </div>
+            <br><br>
+          </div>
+          <div class="app-alert-footer">
+            <button class="app-btn" data-win-toggle="modal" data-win-target="#TimeC">Cancelar</button>
+            <button class="app-btn app-btn-primary">
+              <span>Finalizar</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -219,7 +294,7 @@
           <fluent-icon iconsize="24">&#xE946;</fluent-icon>
           <div>
             <p>Informações</p>
-            <p textType="caption">Ver créditos, versão, atualizações; Reiniciar aplicativo</p>
+            <p textType="caption">Ver créditos, versão, atualizações</p>
           </div>
           <fluent-icon iconsize="24" class="alertExpose" id="exposeInfo">&#xE70D;</fluent-icon>
         </div>
@@ -230,43 +305,25 @@
             <p textType="body">Versão</p>
           </div>
           <div>
-            Canary 2
+            Canary 2.1
           </div>
         </div>
 
-        <div class="subBlockItem">
+        <div class="subBlockItem lastItem">
           <div>
             <p textType="body">Repositório GitHub</p>
           </div>
           <fluent-icon iconsize="24" id="openGitHubBrowser">&#xE8A7;</fluent-icon>
         </div>
-
-        <div class="subBlockItem lastItem">
-          <p textType="body">Créditos</p>
-          <button class="app-btn" data-win-toggle="modal" data-win-target="#CreditsModal">
-            <span>Ver créditos</span>
-          </button>
-        </div>
       </div>
-    </div>
 
-    <!--Credits alert-->
-    <div class="app-alert" id="CreditsModal" data-win-toggle="modal" data-win-target="#CreditsModal" tabindex="-1">
-      <div class="app-alert-modal" aria-modal="true" role="dialog">
-        <div class="app-alert-header">
-          <p textType="title">Créditos</p>
-          <br>
-          Desenvolvimento do aplicativo: IgorSilva-S;
-          <br><br>
-          Interface do aplicativo: IgorSilva-S, virtualvivek;
-          <br><br>
-          Ícone: IgorSilva-S
-          <br>
-        </div>
-        <div class="app-alert-footer">
-          <button class="app-btn app-btn-primary" data-win-toggle="modal" data-win-target="#CreditsModal">
-            <span>OK to Close</span>
-          </button>
+      <div class="appBlock" id="resetMenu">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xE72C;</fluent-icon>
+          <div>
+            <p>Resetar</p>
+            <p textType="caption">Resetar horários, dias, contagem, senha; Formatar aplicativo</p>
+          </div>
         </div>
       </div>
     </div>

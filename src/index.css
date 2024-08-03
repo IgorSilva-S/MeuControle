@@ -235,11 +235,11 @@ section {
 }
 
 .appBlock:hover {
-  background-color: #f9f4f4;
+  background-color: #f4f4f4;
 }
 
 .micaVersion .appBlock:hover {
-  background-color: #f9f4f499;
+  background-color: #f4f4f499;
 }
 
 .openedBlock {
@@ -466,6 +466,19 @@ section {
   position: absolute;
   right: 20px;
   transition-duration: .2s;
+}
+
+.appBlock:active .alertExpose{
+  margin-top: -5px;
+}
+
+.openExpose {
+  rotate: 180deg;
+}
+
+.appBlock:active .openExpose {
+  margin-bottom: -5px;
+  margin-top: 0px;
 }
 
 @media (prefers-color-scheme: dark) {
