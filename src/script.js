@@ -49,9 +49,18 @@ document.addEventListener('DOMContentLoaded', () => {
         isTimeSizeSmall = true
     }
 
+
+    setTimeout(() => {
+        document.getElementById('loadAll').style.opacity = '0'
+        setTimeout(() => {
+            document.getElementById('loadAll').style.display = 'none'
+        }, 300);
+    }, 2000);
+
     if (!isFullDeveloperVersion) {
         devKeysHeader.style.display = 'none'
     }
+
 })
 
 // Is Full Developer Version? 
@@ -135,19 +144,19 @@ setInterval(() => {
     let pageColor = document.getElementById('mouseMove')
     if (hours >= 4 && hours < 8) {
         pageColor.className = 'timeMouseMove'
-        pageColor.classList.add = 'okayTime'
+        pageColor.classList.add('okayTime')
     } else if (hours >= 8 && hours < 12) {
         pageColor.className = 'timeMouseMove'
-        pageColor.classList.add = 'goodTime'
+        pageColor.classList.add('goodTime')
     } else if (hours >= 12 && hours < 16) {
         pageColor.className = 'timeMouseMove'
-        pageColor.classList.add = 'mehTime'
+        pageColor.classList.add('mehTime')
     } else if (hours >= 16 && hours < 20) {
         pageColor.className = 'timeMouseMove'
-        pageColor.classList.add = 'badTime'
+        pageColor.classList.add('badTime')
     } else if (hours >= 20) {
         pageColor.className = 'timeMouseMove'
-        pageColor.classList.add = 'horribleTime'
+        pageColor.classList.add('horribleTime')
     } else {
         pageColor.className = 'timeMouseMove'
     }
@@ -266,6 +275,22 @@ lockDeviceHeader.addEventListener('click', () => {
     }
 })
 
+const settingsHeader = document.getElementById('settingsMenu')
+let isSettingsMenuOpened = false
+settingsHeader.addEventListener('click', () => {
+    if (!isSettingsMenuOpened) {
+        document.getElementById('settingsComp').style.display = 'block'
+        document.getElementById('exposeSettings').classList.add('openExpose');
+        settingsHeader.classList.add('openedBlock')
+        isSettingsMenuOpened = true
+    } else {
+        document.getElementById('settingsComp').removeAttribute('style')
+        document.getElementById('exposeSettings').classList.remove('openExpose');
+        settingsHeader.classList.remove('openedBlock')
+        isSettingsMenuOpened = false
+    }
+})
+
 const devKeysHeader = document.getElementById('devKeysMenu')
 let isDevKeysMenuOpened = false
 devKeysHeader.addEventListener('click', () => {
@@ -295,6 +320,22 @@ infoHeader.addEventListener('click', () => {
         document.getElementById('exposeInfo').classList.remove('openExpose');
         infoHeader.classList.remove('openedBlock')
         isInfoMenuOpened = false
+    }
+})
+
+const eraseHeader = document.getElementById('eraseMenu')
+let isEraseMenuOpened = false
+eraseHeader.addEventListener('click', () => {
+    if (!isEraseMenuOpened) {
+        document.getElementById('eraseComp').style.display = 'block'
+        document.getElementById('exposeErase').classList.add('openExpose');
+        eraseHeader.classList.add('openedBlock')
+        isEraseMenuOpened = true
+    } else {
+        document.getElementById('eraseComp').removeAttribute('style')
+        document.getElementById('exposeErase').classList.remove('openExpose');
+        eraseHeader.classList.remove('openedBlock')
+        isEraseMenuOpened = false
     }
 })
 

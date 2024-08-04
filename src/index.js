@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, shell, Notification } = require('electron');
+const { app, BrowserWindow, ipcMain, shell, Notification, Tray, Menu } = require('electron');
 const { PARAMS, VALUE, MicaBrowserWindow, IS_WINDOWS_11, WIN10 } = require('mica-electron');
 const path = require('node:path');
 
@@ -164,3 +164,4 @@ ipcMain.on('showDevKeysNotification', showNotification)
   ipcMain.on('startExplorer', () => {
     exec("explorer.exe")
   })
+

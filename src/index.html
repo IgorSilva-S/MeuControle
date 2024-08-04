@@ -9,6 +9,10 @@
 </head>
 
 <body>
+  <section class="loadingApp" id="loadAll">
+    <img src="./icon/HDIcons/appIcon.png" alt="">
+    <div class="app-loader-busy loader-lg animate"></div>
+  </section>
   <!--Portuguese (Brazil)-->
   <div class="titlebar">
     <div class="titlebarIcon"></div>
@@ -112,12 +116,57 @@
     <div class="rightCorner" id="rightCorner"></div>
 
     <div class="itemsContainer" id="items">
-      <div class="appBlock">
+      <div class="appBlock" id="resumeMenu">
         <div class="block-icon-title">
           <fluent-icon iconsize="24">&#xF182;</fluent-icon>
           <div>
             <p>Resumo de tempo</p>
-            <p textType="caption">Ver quanto tempo de tela foi utilizado nos últimos cinco dias</p>
+            <p textType="caption">Ver quanto tempo de tela foi utilizado em até sete dias</p>
+          </div>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeResume">&#xE70D;</fluent-icon>
+        </div>
+      </div>
+      <div class="appSubBlock" id="resumeComp" style="display: block;">
+        <div class="subBlockItem lastItem">
+          <div class="app-progress-container topBar" style="display: flex; gap: 5px; flex-direction: row;">
+            <!--Day 7-->
+            <div class="app-progress-bar" style=" height: 240px; display: flex; align-items: flex-end;">
+              <span role="progressbar" style=" height: 20px"></span>
+            </div>
+
+            <!--Day 6-->
+            <div class="app-progress-bar" style=" height: 240px; display: flex; align-items: flex-end;">
+              <span role="progressbar" style=" height: 40px"></span>
+            </div>
+
+            <!--Day 5-->
+            <div class="app-progress-bar" style=" height: 240px; display: flex; align-items: flex-end;" >
+              <span role="progressbar" style=" height: 100px"></span>
+            </div>
+
+            <!--Day 4-->
+            <div class="app-progress-bar" style=" height: 240px; display: flex; align-items: flex-end;">
+              <span role="progressbar" style=" height: 60px"></span>
+            </div>
+
+            <!--Day 3-->
+            <div class="app-progress-bar" style=" height: 240px; display: flex; align-items: flex-end;">
+              <span role="progressbar" style=" height: 100px"></span>
+            </div>
+
+            <!--Day 2-->
+            <div class="app-progress-bar" style=" height: 240px; display: flex; align-items: flex-end;">
+              <span role="progressbar" style=" height: 160px"></span>
+            </div>
+
+            <!--Day 1-->
+            <div class="app-progress-bar" style=" height: 240px; display: flex; align-items: flex-end;">
+              <span role="progressbar" style=" height: 90px"></span>
+            </div>
+          </div>
+
+          <div class="dateBlock">
+            Lorem Ipsum
           </div>
         </div>
       </div>
@@ -130,7 +179,7 @@
             <p textType="caption">Mudar tempo, hora de dormir; Impedir bloqueio de hoje; Permitir acessos emergenciais
             </p>
           </div>
-          <fluent-icon iconsize="24" class="alertExpose" id="exposeLockDevice">&#xE70D;</fluent-icon>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeLockDevice">&#xE70D;</fluent-icon>
         </div>
       </div>
       <div class="appSubBlock" id="lockDeviceComp">
@@ -230,6 +279,7 @@
           </div>
         </div>
       </div>
+      <!--End Time Changer Modals-->
 
       <div class="appBlock">
         <div class="block-icon-title">
@@ -241,15 +291,61 @@
         </div>
       </div>
 
-      <div class="appBlock">
+      <div class="appBlock" id="settingsMenu">
         <div class="block-icon-title">
           <fluent-icon iconsize="24">&#xE713;</fluent-icon>
           <div>
             <p>Configurações</p>
-            <p textType="caption">Altere configurações como senha, modo de comportamento do aplicativo, contagem,
-              objetivo do aplicativo</p>
+            <p textType="caption">Altere configurações como senha, modo de comportamento do aplicativo, contagem</p>
+          </div>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeSettings">&#xE70D;</fluent-icon>
+        </div>
+      </div>
+      <div class="appSubBlock" id="settingsComp">
+        <div class="subBlockItem">
+          <div>
+            Alterar senha
+            <p textType="caption">Caso tenha esquecido a senha, clique em Esqueci</p>
+          </div>
+          <div class="alignButtons">
+            <button class="app-btn">Esqueci</button>
+            <button class="app-btn">Alterar</button>
           </div>
         </div>
+        <div class="subBlockItem">
+          Modo de comportamento do aplicativo
+          <div class="app-select-menu">
+            <span class="app-dropdown-title" data-win-toggle="dropdown" data-win-target="#appBehavior">Esconder
+              total</span>
+            <ul class="app-dropdown-list" id="appBehavior">
+              <li class="app-dropdown-list-item selected"><span>Esconder total</span></li>
+              <li class="app-dropdown-list-item"><span>Esconder na tray</span></li>
+              <li class="app-dropdown-list-item"><span>Popup</span></li>
+              <li class="app-dropdown-list-item"><span>Barra</span></li>
+              <li class="app-dropdown-list-item"><span>Barra de tarefas</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="subBlockItem lastItem">
+          <div>
+            Número de dias para armazenar na contagem
+            <p textType="caption">Não tem como recuperar dias contados que já sairam da lista</p>
+          </div>
+          <div class="app-select-menu">
+            <span class="app-dropdown-title" data-win-toggle="dropdown" data-win-target="#saveDays">Sete dias</span>
+            <ul class="app-dropdown-list" id="saveDays">
+              <li class="app-dropdown-list-item selected"><span>Sete dias</span></li>
+              <li class="app-dropdown-list-item"><span>Seis dias</span></li>
+              <li class="app-dropdown-list-item"><span>Cinco dias</span></li>
+              <li class="app-dropdown-list-item"><span>Quatro dias</span></li>
+              <li class="app-dropdown-list-item"><span>Três dias</span></li>
+              <li class="app-dropdown-list-item"><span>Dois dias</span></li>
+              <li class="app-dropdown-list-item"><span>Um dia</span></li>
+              <li class="app-dropdown-list-item"><span>Não armazenar</span></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
 
       <div class="appBlock" id="devKeysMenu">
@@ -259,7 +355,7 @@
             <p>DevKeys</p>
             <p textType="caption">Configurações de desenvolvedor</p>
           </div>
-          <fluent-icon iconsize="24" class="alertExpose" id="exposeDevKeys">&#xE70D;</fluent-icon>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeDevKeys">&#xE70D;</fluent-icon>
         </div>
       </div>
       <div class="appSubBlock" id="devKeysComp">
@@ -296,7 +392,7 @@
             <p>Informações</p>
             <p textType="caption">Ver créditos, versão, atualizações</p>
           </div>
-          <fluent-icon iconsize="24" class="alertExpose" id="exposeInfo">&#xE70D;</fluent-icon>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeInfo">&#xE70D;</fluent-icon>
         </div>
       </div>
       <div class="appSubBlock" id="infoComp">
@@ -317,15 +413,46 @@
         </div>
       </div>
 
-      <div class="appBlock" id="resetMenu">
+      <div class="appBlock" id="eraseMenu">
         <div class="block-icon-title">
-          <fluent-icon iconsize="24">&#xE72C;</fluent-icon>
+          <fluent-icon iconsize="24">&#xE75C;</fluent-icon>
           <div>
-            <p>Resetar</p>
-            <p textType="caption">Resetar horários, dias, contagem, senha; Formatar aplicativo</p>
+            <p>Apagar</p>
+            <p textType="caption">Apagar horários, dias, senha; Apagar todos os dados</p>
           </div>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeErase">&#xE70D;</fluent-icon>
         </div>
       </div>
+      <div class="appSubBlock" id="eraseComp">
+        <div class="subBlockItem">
+          <p textType="body">Apagar contagem dos últimos sete dias</p>
+          <button class="app-btn">Apagar</button>
+        </div>
+        <div class="subBlockItem">
+          <p textType="body">Apagar horário de dormir</p>
+          <button class="app-btn">Apagar</button>
+        </div>
+        <div class="subBlockItem">
+          <p textType="body">Apagar tempo de tela</p>
+          <button class="app-btn">Apagar</button>
+        </div>
+        <div class="subBlockItem">
+          <p textType="body">Apagar senha de configurações</p>
+          <button class="app-btn">Apagar</button>
+        </div>
+        <div class="subBlockItem lastItem">
+          <div class="block-icon-title">
+            <fluent-icon iconsize="16">&#xE74D;</fluent-icon>
+            <div>
+              <p>Apagar todos os dados</p>
+              <p textType="caption">Apague todas as configurações e definições do aplicativo. Essa é uma ação sem volta!
+              </p>
+            </div>
+          </div>
+          <button class="app-btn">Apagar</button>
+        </div>
+      </div>
+
     </div>
   </section>
 
