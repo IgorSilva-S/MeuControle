@@ -35,53 +35,56 @@
   </section>
 
   <!--Setup Page-->
-  <section class="setupPage" id="setupPage" style="display: none">
-    <div class="setupBlock">
-      <div class="settingsContainer startSettings" id="startPage">
-        <h1 textType="title">Para qual fim você usará o app?</h1>
-        <br>
-        <input type="radio" class="app-radio-button" name="appGoal" id="controlScreen">
-        <label for="controlScreen">Controlar o meu uso de tela</label>
-        <br><br>
-        <input type="radio" class="app-radio-button" name="appGoal" id="screenTimer">
-        <label for="screenTimer">Usar apenas um tempo específico de tela</label>
-        <br><br>
-        <input type="radio" class="app-radio-button" name="appGoal" id="sleepTime">
-        <label for="sleepTime">Para definir um horário para dormir</label>
-        <br><br>
-        <input type="radio" class="app-radio-button" name="appGoal" id="UDop2a3">
-        <label for="UDop2a3">Definir tempo de uso e hora de dormir</label>
+  <section class="setupPage" id="setupPage" style="display: none;">
 
-        <div class="alignButtonsEnd">
-          <button class="app-btn app-btn-primary" id="goalToNextPage">Prosseguir</button>
+    <div class="oobeBlock" id="Sblock1" style="background-color: red;"></div>
+    <div class="oobeBlock" id="Sblock2" style="animation-delay: 1s; background-color: orange;"></div>
+    <div class="oobeBlock" id="Sblock3" style="animation-delay: 2s; background-color: yellow;"></div>
+    <div class="oobeBlock" id="Sblock4" style="animation-delay: 3s; background-color: green;"></div>
+    <div class="oobeBlock" id="Sblock5" style="animation-delay: 4s;"></div>
+    <div class="oobeBlock" id="Sblock6" style="animation-delay: 5s; background-color: #8706d4;"></div>
+
+    <div class="acrylicSetup">
+      <div class="setupBlock">
+        <div class="settingsContainer startSettings" id="startPage">
+          <h1 textType="title">Para qual fim você usará o app?</h1>
+          <p textType="caption">Não guardaremos essa informação, ela serve apenas para que o seu início no app seja mais objetivo!</p>
+          <br>
+          <input type="radio" class="app-radio-button" name="appGoal" id="controlScreen">
+          <label for="controlScreen">Controlar o meu uso de tela</label>
+          <br><br>
+          <input type="radio" class="app-radio-button" name="appGoal" id="screenTimer">
+          <label for="screenTimer">Usar apenas um tempo específico de tela</label>
+          <br><br>
+          <input type="radio" class="app-radio-button" name="appGoal" id="sleepTime">
+          <label for="sleepTime">Para definir um horário para dormir</label>
+          <br><br>
+          <input type="radio" class="app-radio-button" name="appGoal" id="UDop2a3">
+          <label for="UDop2a3">Definir tempo de uso e hora de dormir</label>
+  
+          <div class="alignButtonsEnd">
+            <button class="app-btn app-btn-primary" id="goalToNextPage">Prosseguir</button>
+          </div>
+        </div>
+  
+        <div class="settingsContainer" id="endPage" style="display: none">
+          <h1 textType="title">Configurações finalizadas!</h1>
+          <br>
+          Para alterar as configurações posteriormente, procure pelas configurações do aplicativo!
+          <div class="alignButtonsEnd">
+            <button class="app-btn app-btn-primary" id="setupToUP">Finalizar</button>
+          </div>
         </div>
       </div>
-
-      <div class="settingsContainer" id="endPage" style="display: none">
-        <h1 textType="title">Configurações finalizadas!</h1>
-        <br>
-        Para alterar as configurações posteriormente, procure pelas configurações do aplicativo!
-        <div class="alignButtonsEnd">
-          <button class="app-btn app-btn-primary" id="setupToUP">Finalizar</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="setupBlock infoSetup" id="mediaBar">
-      <div class="mediaOpen" id="openMediaBar">
-        <fluent-icon iconsize="32" id="alertOpenMediaBar">&#xE76C;</fluent-icon>
-      </div>
-      <div class="allSetupInfos">
-        <h1 textType="title">Passos</h1>
-        <div class="stepsInfo" id="stepsInfo">
-          <p textType="bodyStrong" class="stepsButton">Definição de Uso</p>
-        </div>
-      </div>
+  
+      <button class="EaseOfAccess-btn">
+        <fluent-icon iconsize="32">&#xE776;</fluent-icon>
+      </button>
     </div>
   </section>
 
   <!--User Page-->
-  <section id="userPage" class="userPage" style="display: none">
+  <section id="userPage" class="userPage firstTime" style="display: none;">
     <div class="timeMouseMove" id="mouseMove">
       <div class="oobeBlock" id="block1"></div>
       <div class="oobeBlock" id="block2" style="animation-delay: 1s;"></div>
@@ -94,7 +97,7 @@
           <fluent-icon iconsize="32" id="iconTimeButton">&#xE8C5;</fluent-icon>
         </button>
         <h1 textType="title" class="userPageTitle" id="myPageTitle">Minha página</h1>
-        <div>
+        <div class="userPageScreenTime">
           <p textType="subtitle" id="textScreenTime">Tempo de tela utilizado:</p>
           <p textType="display" id="screenTimeWatch">
             <span id="hoursScreen">0</span> <span id="hourText">horas</span>
@@ -105,10 +108,6 @@
           </p>
         </div>
 
-        <div id="sleepTime" style="display: none">
-          <p textType="subtitle">Hora de dormir:</p>
-          <p textType="display">22 horas</p>
-        </div>
       </div>
     </div>
     <div class="roundCorner" id="roundCorner"></div>
@@ -365,6 +364,18 @@
           </div>
           <fluent-icon iconsize="24" id="iconOpenDevTools">&#xE8A7;</fluent-icon>
         </div>
+        <div class="subBlockItem" id="dedication">
+          <div class="block-icon-title">
+            <fluent-icon iconsize="16">&#xE770;</fluent-icon>
+            <div>
+              Dedicatória
+              <p textType="caption">Dedicatória do desenvolvedor para o notebook que iniciou o projeto</p>
+            </div>
+          </div>
+          <button class="app-btn" data-win-toggle="modal" data-win-target="#aspireEnd">
+            Abrir dedicatória
+          </button>
+        </div>
         <div class="subBlockItem">
           Spawnar uma notificação
           <button class="app-btn" id="devKeysNotify">
@@ -384,6 +395,30 @@
           </button>
         </div>
       </div>
+      <!--Dedicatória: Aspire-->
+      <div class="app-alert" id="aspireEnd" data-win-toggle="modal" data-win-target="#aspireEnd" tabindex="-1">
+        <div class="app-alert-modal" aria-modal="true" role="dialog">
+          <div class="app-alert-header">
+            <h1 textType="title">Dedicatória</h1>
+            <br>
+            Bom... <br>
+            se passou um tempo desde que ganhei você (quase um ano que a tragédia ocorreu), e eu sou extremamente grato pelo Ricardo e pela Elen, por terem me disponibilzado o Aspire... <br>
+            Agora, chegou a hora de progredir, de trocar de sistema, de melhorar o computador pela primeira vez, mas, não será você, visto que tem muita coisa que não pode ser modificada em você. <br>
+            Agradeço por esse tempo que você ficou funcionando e por ter me ajudado na hora que precisei de um computador, e, por ter suportado da melhor forma possível um sistema que não foi criado para você.
+            <br><br>
+            Muito obrigado.
+            <br><br>
+            IgorSilva-S (Igor Silva Santos)
+            <br><br>
+          </div>
+          <div class="app-alert-footer">
+            <button class="app-btn app-btn-primary" data-win-toggle="modal" data-win-target="#aspireEnd">
+              <span>Fechar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
 
       <div class="appBlock" id="infoMenu">
         <div class="block-icon-title">
@@ -401,7 +436,7 @@
             <p textType="body">Versão</p>
           </div>
           <div>
-            Canary 2.1
+            Canary 3
           </div>
         </div>
 

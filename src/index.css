@@ -39,6 +39,7 @@ body {
   align-items: center;
   flex-direction: column;
   transition-duration: 2.3s;
+  display: none;
 }
 
 .loadingApp img {
@@ -96,6 +97,21 @@ section {
 
 .setupPage {
   flex-direction: row;
+  background-color: #fff;
+  height: 100vh;
+  top: -41px;
+}
+
+.acrylicSetup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(100px);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .userPage {
@@ -118,9 +134,9 @@ section {
 
 .setupBlock {
   border-radius: 8px;
-  min-width: 480px;
-  min-height: 700px;
-  background-color: #fbfcfb;
+  min-width: 40vw;
+  min-height: 80vh;
+  background-color: #fbfcfb88;
   border: 1px solid #e6e4e8;
   overflow: hidden;
   position: relative;
@@ -132,8 +148,8 @@ section {
 
 .settingsContainer,
 .allSetupInfos {
-  width: 480px;
-  height: 700px;
+  width: 40vw;
+  height: 80vh;
   box-sizing: border-box;
   padding: 5px;
   padding-top: 30px;
@@ -156,8 +172,17 @@ section {
   }
 }
 
-.setupBlock h1 {
+.setupBlock h1,
+.setupBlock p[textType="caption"] {
   text-align: center;
+}
+
+.EaseOfAccess-btn {
+  position: absolute;
+  bottom: 20px;
+  right:  20px;
+  z-index: 1000;
+  padding: 5px;
 }
 
 
@@ -362,6 +387,20 @@ section {
   transition-duration: .5s;
 }
 
+.firstTime .timeMouseMove,
+.firstTime .mouseMoveAcrylic {
+  height: 100vh;
+  animation: firstTimeWatch 0s ease-out 1.5s;
+}
+
+@keyframes firstTimeWatch {
+  from {
+    height: 100vh;
+  } to {
+    height: 440px;
+  }
+}
+
 .mouseMoveAcrylic {
   width: 100%;
   height: 440px;
@@ -380,6 +419,10 @@ section {
   left:  20px;
   z-index: 1000;
   padding: 5px;
+}
+
+.firstTime .changeTimeVisibility {
+  display: none;
 }
 
 /*.moveBlock {
@@ -443,6 +486,21 @@ section {
   width: 100%;
 }
 
+.firstTime .userPageTitle,
+.firstTime .userPageScreenTime {
+  animation-name: appearText;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes appearText {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
 .roundCorner {
   width: 100%;
   height: 12px;
@@ -485,6 +543,19 @@ section {
   padding-bottom: 30px;
 }
 
+.firstTime .itemsContainer {
+  top: 100vh;
+  animation: firstTimeItems 0s ease-out 1.5s;
+}
+
+@keyframes firstTimeItems {
+  from {
+    top: 100vh;
+  } to {
+    top: 440px;
+  }
+}
+
 .block-icon-title {
   display: flex;
   align-items: center;
@@ -524,10 +595,18 @@ section {
 
 @media (prefers-color-scheme: dark) {
 
+  .setupPage {
+    background-color: #000;
+  }
+
   .appBlock, .setupBlock {
     background-color: #323232;
     border: 1px solid #232323;
     transition-duration: .2s;
+  }
+
+  .setupBlock {
+    background-color: #32323288;
   }
 
   .mediaOpen {
@@ -578,7 +657,7 @@ section {
   }
 }
 
-@media (max-height: 740px) {
+/*@media (max-height: 740px) {
   .setupBlock {
     min-height: 500px;
   }
@@ -605,4 +684,4 @@ section {
   .settingsContainer {
     height: 500px;
   }
-}
+}*/

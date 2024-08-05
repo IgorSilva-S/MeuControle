@@ -12,6 +12,14 @@ if (is11) {
     document.body.className = 'micaVersion'
 }
 
+// New command to close app
+ipcRenderer.on('completeCloseApp', () => {
+    let canClose = confirm('Tem certeza que gostaria de fechar o app?')
+    if (canClose) {
+        ipcRenderer.send('appCanClose')
+    }
+})
+
 // DevKeys integrated with Electron
 const iconOpenDevTools = document.getElementById('iconOpenDevTools')
 iconOpenDevTools.addEventListener('click', () => {
@@ -36,17 +44,19 @@ startExplorer.addEventListener('click', () => {
 // LocalStorage automation
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('isTimeSizeSmall') == 'true') {
-        document.getElementById('mouseMove').style.height = '132px'
-        document.getElementById('acrylicPart').setAttribute('style', 'height: 132px; justify-content: flex-start; box-sizing: border-box; padding-left: 100px; padding-top: 0')
-        document.getElementById('myPageTitle').style.display = 'none'
-        document.getElementById('roundCorner').style.top = '120px'
-        document.getElementById('leftCorner').style.top = '132px'
-        document.getElementById('rightCorner').style.top = '132px'
-        document.getElementById('textScreenTime').style.display = 'none'
-        document.getElementById('screenTimeWatch').setAttribute('textType', 'titleLarge')
-        document.getElementById('iconTimeButton').innerHTML = '&#xE8C4;'
-        document.getElementById('items').setAttribute('style', 'height: calc(100vh - 130px); top: 132px;')
-        isTimeSizeSmall = true
+        setTimeout(() => {
+            document.getElementById('mouseMove').style.height = '132px'
+            document.getElementById('acrylicPart').setAttribute('style', 'height: 132px; justify-content: flex-start; box-sizing: border-box; padding-left: 100px; padding-top: 0')
+            document.getElementById('myPageTitle').style.display = 'none'
+            document.getElementById('roundCorner').style.top = '120px'
+            document.getElementById('leftCorner').style.top = '132px'
+            document.getElementById('rightCorner').style.top = '132px'
+            document.getElementById('textScreenTime').style.display = 'none'
+            document.getElementById('screenTimeWatch').setAttribute('textType', 'titleLarge')
+            document.getElementById('iconTimeButton').innerHTML = '&#xE8C4;'
+            document.getElementById('items').setAttribute('style', 'height: calc(100vh - 130px); top: 132px;')
+            isTimeSizeSmall = true
+        }, 2500);
     }
 
 
@@ -61,10 +71,24 @@ document.addEventListener('DOMContentLoaded', () => {
         devKeysHeader.style.display = 'none'
     }
 
+    if (!canAppearDedication) {
+        document.getElementById('dedication').style.display = 'none'
+    }
+
 })
 
 // Is Full Developer Version? 
 const isFullDeveloperVersion = true
+let canAppearDedication = false
+function appearDedication(acerDate) {
+    if (acerDate === '01/09/2023') {
+        console.log('A dedicatória está disponível! Você pode consutá-la em DevKeys > Dedicatória')
+        document.getElementById('dedication').removeAttribute('style')
+
+    } else {
+        console.log('Erro na função. Tente novamente (0x00230901)')
+    }
+}
 
 // Pages
 const welcomePage = document.getElementById('welcomePage')
@@ -183,20 +207,6 @@ noSetupButton.addEventListener('click', () => {
 })
 
 // Setup page
-const mediaBar = document.getElementById('mediaBar')
-const mediaButton = document.getElementById('openMediaBar')
-let isMediaBarOpened = false
-mediaButton.addEventListener('click', () => {
-    if (!isMediaBarOpened) {
-        document.getElementById('alertOpenMediaBar').classList.add('openExpose');
-        mediaBar.style.left = '0'
-        isMediaBarOpened = true
-    } else {
-        document.getElementById('alertOpenMediaBar').classList.remove('openExpose')
-        mediaBar.removeAttribute('style')
-        isMediaBarOpened = false
-    }
-})
 
 //Setup Page - Navigation
 const UD_A1 = document.getElementById('controlScreen')
@@ -223,7 +233,7 @@ goalToNext.addEventListener('click', () => {
 
 setupToUP.addEventListener('click', () => {
     hideAllPages()
-    userPage.style.display = 'block'
+    userPage.removeAttribute('style')
 })
 
 // User Page - Change time anim size

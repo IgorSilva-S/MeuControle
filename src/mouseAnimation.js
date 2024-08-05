@@ -28,6 +28,14 @@ for (let i = 1; i<=6; i++) {
         document.getElementById(`block${i}`).style.top = `${randY}px`
         document.getElementById(`block${i}`).style.left = `${randX}%`
     })
+    document.getElementById(`Sblock${i}`).style.top = `${randY}px`
+    document.getElementById(`Sblock${i}`).style.left = `${randX}%`
+    document.getElementById(`Sblock${i}`).addEventListener('animationiteration', () => {
+        let randX = Math.floor((Math.random() * 90) + 1)
+        let randY = Math.floor((Math.random() * 440) + 1)
+        document.getElementById(`Sblock${i}`).style.top = `${randY}px`
+        document.getElementById(`Sblock${i}`).style.left = `${randX}%`
+    })
 }
 
 function animRand() {
@@ -47,3 +55,8 @@ function animRand() {
       animContainer.classList.add('horribleTime')
     }
 }
+
+let animContainer = document.getElementById('mouseMove')
+animContainer.addEventListener('animationend', () => {
+  document.getElementById('userPage').classList.remove('firstTime')
+})
