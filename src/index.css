@@ -65,6 +65,28 @@ body {
   z-index: 1000;
 }
 
+.titlebar > .titleBarIcons {
+  height: 40px;
+  position: absolute;
+  right: 0;
+  -webkit-app-region: no-drag;
+  background-color: #22248a;
+  gap: 0;
+  width: 120px;
+}
+ 
+.titleBarIcons .titleButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  margin-left: 0;
+  position: static;
+  border: none;
+  box-sizing: initial;
+}
+
 .titlebarIcon {
   width: 20px;
   height: 20px;
