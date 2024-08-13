@@ -174,9 +174,9 @@ ipcMain.on('appCanClose', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-/*try {
+try {
   require('electron-reloader')(module);
-} catch { }*/
+} catch { }
 
 ipcMain.on('openGitHubInBrowser', () => {
   shell.openExternal("https://github.com/IgorSilva-S/MeuControle");

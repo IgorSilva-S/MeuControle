@@ -17,17 +17,7 @@
   <div class="titlebar">
     <div class="titlebarIcon"></div>
     Meu Controle
-    <div class="titleBarIcons" style="display: none">
-      <button class="titleButton">
-        <fluent-icon>&#xE921;</fluent-icon>
-      </button>
-      <button class="titleButton">
-        <fluent-icon>&#xE922;</fluent-icon>
-      </button>
-      <button class="titleButton closeButton">
-        <fluent-icon>&#xE8BB;</fluent-icon>
-      </button>
-    </div>
+
   </div>
   <!--Welcome Page-->
   <section class="welcomePage" id="welcomePage">
@@ -57,7 +47,7 @@
 
     <div class="acrylicSetup">
       <div class="setupBlock">
-        <div class="settingsContainer startSettings" id="startPage">
+        <div class="settingsContainer startSettings" id="startPage" style="display: none">
           <h1 textType="title">Para qual fim você usará o app?</h1>
           <p textType="caption">Não guardaremos essa informação, ela serve apenas para que o seu início no app seja mais objetivo!</p>
           <br>
@@ -78,6 +68,16 @@
           </div>
         </div>
   
+        <div class="settingsContainer" id="screenTime">
+          <h1 textType="title">Configure seu tempo de tela</h1>
+          <p textType="caption">Escolha o seu tempo de tela para uso do seu computador. No momento, apenas horas redondas são utilizadas</p>
+          <div class="selectTimeContainer">
+            <div class="selectTime">
+            
+            </div>
+          </div>
+        </div>
+
         <div class="settingsContainer" id="endPage" style="display: none">
           <h1 textType="title">Configurações finalizadas!</h1>
           <br>
