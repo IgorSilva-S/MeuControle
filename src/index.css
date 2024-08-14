@@ -267,10 +267,34 @@ section {
   opacity: 1
 }
 
+.selectTimeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+  gap: 5px;
+}
+
+.timeButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  transition-duration: .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeButton:hover {
+  background-color: #f0f8ff44;
+}
+
 .selectTime {
   width: 100px;
   height: 100px;
-  background-color: #1f1f1f;
+  background-color: #1f1f1fcc;
   border-radius: 4px;
   position: relative;
   display: flex;

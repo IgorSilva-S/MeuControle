@@ -236,6 +236,28 @@ setupToUP.addEventListener('click', () => {
     userPage.removeAttribute('style')
 })
 
+//Setup - Functions
+let setupScreenTime = 0
+const addSetupSTButton = document.getElementById('addST')
+const removeSetupSTButton = document.getElementById('removeST')
+const setupSTDisplay = document.getElementById('setupSTDisplay')
+const addZero = (num) => {
+    return ('0' + num).slice(-2)
+}
+addSetupSTButton.addEventListener('click', () => {
+    if (setupScreenTime < 23) {
+        setupScreenTime++
+    }
+    setupSTDisplay.innerHTML = addZero(setupScreenTime)
+})
+
+removeSetupSTButton.addEventListener('click', () => {
+    if (setupScreenTime > 0) {
+        setupScreenTime--
+    }
+    setupSTDisplay.innerHTML = addZero(setupScreenTime)
+})
+
 // User Page - Change time anim size
 let isTimeSizeSmall = false
 changeTimeVisibility.addEventListener('click', () => {
