@@ -237,7 +237,7 @@ setupToUP.addEventListener('click', () => {
 })
 
 //Setup - Functions
-let setupScreenTime = 0
+let setupScreenTime = 1
 const addSetupSTButton = document.getElementById('addST')
 const removeSetupSTButton = document.getElementById('removeST')
 const setupSTDisplay = document.getElementById('setupSTDisplay')
@@ -252,7 +252,7 @@ addSetupSTButton.addEventListener('click', () => {
 })
 
 removeSetupSTButton.addEventListener('click', () => {
-    if (setupScreenTime > 0) {
+    if (setupScreenTime > 1) {
         setupScreenTime--
     }
     setupSTDisplay.innerHTML = addZero(setupScreenTime)

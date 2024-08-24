@@ -22,6 +22,8 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    minWidth: 379,
+    minHeight: 665,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
@@ -73,6 +75,8 @@ const createMicaWindow = () => {
   micaMainWindow = new MicaBrowserWindow({
     width: 800,
     height: 600,
+    minWidth: 379,
+    minHeight: 665,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,

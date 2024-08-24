@@ -93,6 +93,7 @@ section {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .setupPage {
@@ -134,8 +135,8 @@ section {
 
 .setupBlock {
   border-radius: 8px;
-  min-width: 40vw;
-  min-height: 80vh;
+  min-width: 336px;
+  min-height: 589px;
   background-color: #fbfcfbcc;
   border: 1px solid #e6e4e8;
   overflow: hidden;
@@ -148,8 +149,8 @@ section {
 
 .settingsContainer,
 .allSetupInfos {
-  width: 40vw;
-  height: 80vh;
+  min-width: 336px;
+  min-height: 589px;
   box-sizing: border-box;
   padding: 5px;
   padding-top: 30px;
@@ -301,6 +302,7 @@ section {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  border: 1px solid var(--color-primary-adaptive);
 }
 
 .selectTime::after {
@@ -324,6 +326,7 @@ section {
   border: 1px solid #eaeaea;
   position: relative;
   transition-duration: .2s;
+  padding-right: 50px;
 }
 
 .appBlock:hover {
@@ -458,6 +461,7 @@ section {
   justify-content: space-evenly;
   align-items: center;
   transition-duration: .5s;
+  text-align: center;
 }
 
 .changeTimeVisibility {
@@ -601,6 +605,10 @@ section {
   } to {
     top: 440px;
   }
+}
+
+.settingsTitle {
+  margin: 10px 0;
 }
 
 .block-icon-title {
