@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    user-select: none;
 }
 
 :root {
@@ -28,4 +29,9 @@ section {
 
 section fluent-icon {
     font-size: 120px;
+}
+
+.alignButtons {
+    gap: 10px;
+    display: flex;
 }
