@@ -35,3 +35,10 @@ section fluent-icon {
     gap: 10px;
     display: flex;
 }
+
+.timeContainer {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+}

@@ -47,29 +47,31 @@
 
     <div class="acrylicSetup">
       <div class="setupBlock">
-        <div class="settingsContainer startSettings" id="startPage" style="display: none">
+        <div class="settingsContainer startSettings" id="startPage" >
           <h1 textType="title">Para qual fim você usará o app?</h1>
           <p textType="caption">Não guardaremos essa informação, ela serve apenas para que o seu início no app seja mais
             objetivo!</p>
           <br>
-          <input type="radio" class="app-radio-button" name="appGoal" id="controlScreen">
-          <label for="controlScreen">Controlar o meu uso de tela</label>
-          <br><br>
-          <input type="radio" class="app-radio-button" name="appGoal" id="screenTimer">
-          <label for="screenTimer">Usar apenas um tempo específico de tela</label>
-          <br><br>
-          <input type="radio" class="app-radio-button" name="appGoal" id="sleepTime">
-          <label for="sleepTime">Para definir um horário para dormir</label>
-          <br><br>
-          <input type="radio" class="app-radio-button" name="appGoal" id="UDop2a3">
-          <label for="UDop2a3">Definir tempo de uso e hora de dormir</label>
-
+          <div style="display: block; text-align: start;">
+            <input type="radio" class="app-radio-button" name="appGoal" id="controlScreen">
+            <label for="controlScreen">Controlar o meu uso de tela</label>
+            <br><br>
+            <input type="radio" class="app-radio-button" name="appGoal" id="screenTimer">
+            <label for="screenTimer">Usar apenas um tempo específico de tela</label>
+            <br><br>
+            <input type="radio" class="app-radio-button" name="appGoal" id="sleepTime">
+            <label for="sleepTime">Para definir um horário para dormir</label>
+            <br><br>
+            <input type="radio" class="app-radio-button" name="appGoal" id="UDop2a3">
+            <label for="UDop2a3">Definir tempo de uso e hora de dormir</label>
+  
+          </div>
           <div class="alignButtonsEnd">
             <button class="app-btn app-btn-primary" id="goalToNextPage">Prosseguir</button>
           </div>
         </div>
 
-        <div class="settingsContainer" id="screenTime">
+        <div class="settingsContainer" id="screenTime" style="display: none">
           <h1 textType="title">Configure seu tempo de tela</h1>
           <p textType="caption">Escolha o seu tempo de tela para uso do seu computador. No momento, apenas horas
             redondas são utilizadas</p>

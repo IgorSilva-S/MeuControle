@@ -6,14 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="lockScreen.css">
-    <link rel="stylesheet" href="segoeFont.css">
+    <link rel="stylesheet" href="../segoeFont.css">
 </head>
 
 <body>
 
     <section>
-        <fluent-icon>&#xF182;</fluent-icon>
-        <h1 textType="titleLarge">Você atingiu seu tempo de tela, seu computador está bloqueado.</h1>
+        
+        <div class="timeContainer">
+            <div class="time" textType="display">
+                <span id="hours">00</span>:<span id="minutes">00</span>
+            </div>
+            <div class="date" textType="subtitle">
+                <span id="weekDay">Domingo</span>, <span id="day">01</span> de <span id="month">janeiro</span> de <span id="year">1970</span>
+            </div>
+        </div>
+
+        <h1 textType="titleLarge" id="typeLockText">Você atingiu seu tempo de tela, seu computador está bloqueado.</h1>
         <div class="alignButtons">
             <button class="app-btn app-btn-primary">
                 <span>Desligar o computador</span>
@@ -30,11 +39,13 @@
         </div>
     </section>
 
+    <script src="lockScreen.js"></script>
+
     <!--Windows UI Locak Links-->
     <!-- CSS -->
-    <link href="./WinUI/windows-ui.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="../WinUI/windows-ui.min.css" rel="stylesheet" crossorigin="anonymous">
     <!-- JS -->
-    <script src="./WinUI/windows-ui.min.js" crossorigin="anonymous"></script>
+    <script src="../WinUI/windows-ui.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
