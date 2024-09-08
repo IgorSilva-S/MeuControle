@@ -118,6 +118,7 @@ const createMicaWindow = () => {
   micaMainWindow.restore()
 
   micaMainWindow.on('close', (e) => {
+    e.preventDefault()
     micaMainWindow.hide();
     isWindowOpened = false
   })
