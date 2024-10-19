@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain, shell, Notification, Tray, Menu } = require('electron');
+const { powerSaveBlocker } = require('electron');
 const { PARAMS, VALUE, MicaBrowserWindow, IS_WINDOWS_11, WIN10 } = require('mica-electron');
 const path = require('node:path');
 let tray = null
@@ -37,6 +38,7 @@ const createWindow = () => {
     },
     icon: 'src/icon/icon.ico',
     //skipTaskbar: true,
+    
   });
 
   // and load the index.html of the app.
@@ -135,6 +137,8 @@ app.whenReady().then(() => {
     createWindow()
     isWindowOpened = true
   }
+  const id = powerSaveBlocker.start('prevent-app-suspension');
+  console.log(powerSaveBlocker.isStarted(id))
 
   tray = new Tray('src/icon/icon.ico')
   tray.setToolTip('Meu Controle')

@@ -44,6 +44,7 @@
     --color-ui-active-default: var(--dark, #262626) var(--light, #D8D8D8);
     --color-navbar-bg-default: var(--dark, #202020) var(--light, #F3F3F3);
     --color-primary-adaptive: var(--dark, var(--PrimaryColorLight)) var(--light, var(--PrimaryColor));
+    --color-primary-adaptive-inverse: var(--dark, var(--PrimaryColor)) var(--light, var(--PrimaryColorLight));
     --color-primary-alpha: var(--dark, #EEEEEE9C) var(--light, #EEEEEE9C);
     --color-progress-bg: var(--dark, #484848) var(--light, #E2E2E2);
     --color-slider-thumb-bg: var(--dark, #454545) var(--light, #FFF);
