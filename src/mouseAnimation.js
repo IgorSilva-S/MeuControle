@@ -11,7 +11,7 @@ animContainer.addEventListener('mousemove', (e) => {
     animContainer.insertAdjacentElement('afterbegin', block)
 })*/
 
-for (let i = 1; i<=6; i++) {
+/*for (let i = 1; i<=6; i++) {
     let randX = Math.floor((Math.random() * 90) + 1)
     let randY = Math.floor((Math.random() * 440) + 1)
     if (isTimeSizeSmall) {
@@ -54,7 +54,7 @@ function animRand() {
     }  else if (randTime == 5) {
       animContainer.classList.add('horribleTime')
     }
-}
+}*/
 
 let animContainer = document.getElementById('mouseMove')
 animContainer.addEventListener('animationend', () => {

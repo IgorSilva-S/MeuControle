@@ -1,160 +1,759 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/*Accent color: #111245; Light Variation: #7477ff*/
+
+:root {
+  --PrimaryColor: #111245; /* Change of your choice */
+  --PrimaryColorLight: #7477ff; /* Lighter version of --PrimaryColor for DarkMode */
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  font-size: 14px;
+  font-family: 'Segoe UI Variable';
+  font-weight: normal;
+  background-color: transparent;
+}
+
+.micaVersion {
+  background-color: transparent !important;
+}
+
+.loadingApp {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1001;
+  position: fixed;
+  background-color: #22248a;
+  top: -41px;
+  left: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  transition-duration: 2.3s;
+  display: none;
+}
+
+.loadingApp img {
+  -webkit-user-drag: none;
+  width: 150px;
+  height: 150px;
+}
+
+.titlebar {
+  width: 100%;
+  height: 41px;
+  -webkit-app-region: drag;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+  gap: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  user-select: none;
+  z-index: 1000;
+}
+
+.titlebarIcon {
+  width: 20px;
+  height: 20px;
+  background-image: url(./icon/appIcon.png);
+  background-size: cover;
+  background-position: center;
+}
+
+section {
+  width: 100vw;
+  height: calc(100vh - 41px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 41px;
+  user-select: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.welcomePage, .setupPage {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.setupPage {
+  flex-direction: row;
+  background-color: #fff;
+  height: 100vh;
+  top: -41px;
+}
+
+.acrylicSetup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(100px);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.userPage {
+  margin-top: 0;
+  height: 0;
+}
+
+
+.settingRotate {
+  animation: rotateSettings 20s linear infinite;
+}
+
+@keyframes rotateSettings {
+  from {
+    rotate: 0deg
+  } to {
+    rotate: 360deg;
   }
-  
-  /*Accent color: #111245; Light Variation: #7477ff*/
-  
-  :root {
-    --PrimaryColor: #111245; /* Change of your choice */
-    --PrimaryColorLight: #7477ff; /* Lighter version of --PrimaryColor for DarkMode */
+}
+
+.setupBlock {
+  border-radius: 8px;
+  min-width: 336px;
+  min-height: 589px;
+  background-color: #fbfcfbcc;
+  border: 1px solid #e6e4e8;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  transition-duration: .2s;
+}
+
+/*Button height: 112px; width: 479px*/ 
+
+.settingsContainer,
+.allSetupInfos {
+  min-width: 336px;
+  min-height: 589px;
+  box-sizing: border-box;
+  padding: 5px;
+  padding-top: 30px;
+  position: absolute;
+}
+
+.settingsContainer {
+  animation: appearPage .3s ease-out;
+}
+
+.startSettings {
+  animation: none;
+}
+
+@keyframes appearPage {
+  from {
+    margin-left: 100%;
+  } to {
+    margin-left: 0;
   }
-  
-  html {
-    width: 100vw;
+}
+
+.setupBlock h1,
+.setupBlock p[textType="caption"] {
+  text-align: center;
+}
+
+.EaseOfAccess-btn {
+  position: absolute;
+  bottom: 20px;
+  right:  20px;
+  z-index: 1000;
+  padding: 5px;
+}
+
+
+.mediaOpen {
+  width: 50px;
+  height: 80px;
+  border-radius: 0;
+  position: absolute;
+  right: -50px;
+  top: calc(50% - 40px);
+  background-color: #fbfcfb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mediaOpen fluent-icon {
+  transition-duration: .1s;
+}
+
+.mediaOpen::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 36px solid ;
+  border-color: #fbfcfb transparent transparent transparent;
+  top: -36px;
+  rotate: 45deg;
+  left: -36px;
+}
+
+.mediaOpen::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 36px solid ;
+  border-color: transparent transparent #fbfcfb transparent;
+  bottom: -36px;
+  rotate: -45deg;
+  left: -36px;
+}
+
+.stepsInfo {
+  margin-top: 30px;
+  padding-left: 50px;
+}
+
+.stepsButton {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.stepsSubButton {
+  position: relative;
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
+
+.stepsButton:hover::before,
+.stepsSubButton:hover::before {
+  content: '';
+  width: 3px;
+  height: 90%;
+  position: absolute;
+  left: -15px;
+  background-color: #777;
+  opacity: .5;
+  border-radius: 120px;
+  top: 5%;
+}
+
+.stepsSubButton:hover::before {
+  height: 70%;
+  top: calc(50% - 35%);
+}
+
+.stepsButton:active::before,
+.stepsSubButton:active::before {
+  background-color: var(--color-primary-adaptive);
+  opacity: 1
+}
+
+.selectTimeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+  gap: 5px;
+}
+
+.timeButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  transition-duration: .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeButton:hover {
+  background-color: #f0f8ff44;
+}
+
+.selectTime {
+  width: 100px;
+  height: 100px;
+  background-color: #1f1f1f;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.appBlock {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fdfdfd;
+  border: 1px solid #eaeaea;
+  position: relative;
+  transition-duration: .2s;
+  padding-right: 50px;
+}
+
+.appBlock:hover {
+  background-color: #f9f9f9;
+  border-bottom-color: #d1d1d1;
+}
+
+.micaVersion .appBlock:hover {
+  background-color: #f4f4f499;
+}
+
+.openedBlock {
+  border-radius: 4px 4px 0 0;
+}
+
+.micaVersion .appBlock,
+.micaVersion .setupBlock {
+  background-color: #fbfcfb99;
+}
+
+.appSubBlock {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0 0 4px 4px;
+  display: none;
+  animation: openSubMenu .2s ease-out;
+}
+
+.micaVersion .appSubBlock {
+  animation-name: openSubMenuMica;
+}
+
+@keyframes openSubMenu {
+  from {
+    opacity: 0;
+    margin-top: -10px;
+  } to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes openSubMenuMica {
+  from {
+    opacity: 0;
+    margin-top: -10px;
+  } to {
+    opacity: .7;
+    margin-top: 0;
+  }
+}
+
+.subBlockItem {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fbfcfb;
+  border: 1px solid #e6e4e8;
+  border-bottom: none;
+}
+
+#resumeComp .subBlockItem {
+  display: block;
+}
+
+.lastItem {
+  border-radius: 0 0 4px 4px;
+  border-bottom: 1px solid #e6e4e8;
+}
+
+.alignButtonsEnd {
+  position: absolute;
+  display: flex;
+  bottom: 10px;
+  right: 10px;
+  gap: 13px;
+}
+
+.alignButtonsCenter {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.alignButtons {
+  display: flex;
+  gap: 13px;
+}
+
+.dialogInfo {
+  width: 100%;
+  padding: 20px 4px;
+}
+
+.timeMouseMove {
+  width: 100vw;
+  height: 440px;
+  /*background-image: url(https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msP5l.img);*/
+  background-image: linear-gradient(to bottom, #26abff, #009dff);
+  position: fixed;
+  top: 0px;
+  left: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition-duration: .5s;
+}
+
+.firstTime .timeMouseMove,
+.firstTime .mouseMoveAcrylic {
+  height: 100vh;
+  animation: firstTimeWatch 0s ease-out 1.5s;
+}
+
+@keyframes firstTimeWatch {
+  from {
     height: 100vh;
+  } to {
+    height: 440px;
   }
-  
-  body {
-    font-size: 14px;
-    font-family: 'Segoe UI Variable';
-    font-weight: normal;
-    background-color: transparent;
-  }
-  
-  .micaVersion {
-    background-color: transparent !important;
+}
+
+.mouseMoveAcrylic {
+  width: 100%;
+  height: 440px;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition-duration: .5s;
+  text-align: center;
+}
+
+.changeTimeVisibility {
+  position: absolute;
+  top: 50px;
+  left:  20px;
+  z-index: 1000;
+  padding: 5px;
+}
+
+.firstTime .changeTimeVisibility {
+  display: none;
+}
+
+/*.moveBlock {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: #7477ff;
+  position: absolute;
+  animation: oobe11 2s linear;
+}*/
+
+.oobeBlock {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: var(--color-primary-adaptive);
+  position: absolute;
+  animation: oobe11 5s linear infinite;
+  scale: 0;
+  transition-duration: .2s;
+}
+
+.okayTime .oobeBlock {
+  background-color: green;
+}
+
+.goodTime .oobeBlock {
+  background-color: rgb(145, 255, 0);
+}
+
+.mehTime .oobeBlock {
+  background-color: yellow;
+}
+
+.badTime .oobeBlock {
+  background-color: orange;
+}
+
+.horribleTime .oobeBlock {
+  background-color: red;
+}
+
+@keyframes oobe11 {
+  0% {
+    scale: 0;
   }
 
-  .titlebar {
-    width: 100%;
-    height: 41px;
-    -webkit-app-region: drag;
-    position: fixed;
-    top: 0;
+  50% {
+    scale: 1;
+  }
+
+  100% {
+    scale: 0;
+  }
+}
+
+.userPageTitle {
+  text-align: center;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+}
+
+.firstTime .userPageTitle,
+.firstTime .userPageScreenTime {
+  animation-name: appearText;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  z-index: 100;
+}
+
+@keyframes appearText {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+.roundCorner {
+  width: 100%;
+  height: 12px;
+  position: fixed;
+  left: 0;
+  top: 428px;
+  background-color: var(--color-background-default);
+  border-radius: 8px 8px 0 0;
+  transition-duration: .5s;
+  opacity: 0;
+}
+
+.leftCorner, .rightCorner {
+  width: 12px;
+  height: 100%;
+  position: fixed;
+  top: 440px;
+  background-color: var(--color-background-default);
+  transition-duration: .5s;
+  opacity: 0;
+}
+
+.leftCorner {
+  left: 0;
+}
+
+.rightCorner {
+  right: 0;
+}
+
+.itemsContainer {
+  height: calc(100vh - 450px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition-duration: .5s;
+  position: fixed;
+  width: calc(100vw - 40px);
+  left: 20px;
+  top: 440px;
+  padding-bottom: 30px;
+}
+
+.firstTime .itemsContainer {
+  top: 100vh;
+  animation: firstTimeItems 0s ease-out 1.5s;
+}
+
+@keyframes firstTimeItems {
+  from {
+    top: 100vh;
+  } to {
+    top: 440px;
+  }
+}
+
+.settingsTitle {
+  margin: 10px 0;
+}
+
+.block-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 10px;
+}
+
+.alertExpose {
+  position: absolute;
+  right: 20px;
+  transition-duration: .2s;
+}
+
+.appBlock:active .alertExpose{
+  margin-top: -5px;
+}
+
+.openExpose {
+  rotate: 180deg;
+}
+
+.appBlock:active .openExpose {
+  margin-bottom: -5px;
+  margin-top: 0px;
+}
+
+.topBar .app-progress-bar,
+.topBar span[role="progressbar"] {
+  width: 52px;
+}
+
+.topPB {
+  height: 240px; 
+  display: flex; 
+  align-items: flex-end;
+}
+
+.waveContainer {
+  width: 3840px;
+  height: 426px;
+  position: absolute;
+  top: -170px;
+  z-index: -1;
+  display: flex;
+  flex-direction: row;
+  animation: waveFlow 10s linear infinite;
+}
+
+@keyframes waveFlow {
+  from {
     left: 0;
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 10px;
-    gap: 20px;
-    box-sizing: border-box;
-    align-items: center;
-    user-select: none;
-    z-index: 1001;
+  } to {
+    left: -1920px;
   }
-  
-  .titlebarIcon {
-    width: 20px;
-    height: 20px;
-    background-image: url(./icon/appIcon.png);
-    background-size: cover;
-    background-position: center;
+}
+
+.waveImage {
+  width: 1920px;
+  height: 426px;
+  background-image: url(./textures/waveLight.svg);
+  background-size: cover;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .setupPage {
+    background-color: #000;
   }
-  
-  section {
-    width: calc(100vw - 379px);
-    height: calc(100vh - 41px);
-    position: fixed;
-    top: 0;
-    right: 0;
-    box-sizing: border-box;
-    padding: 50px;
-    margin-top: 41px;
-    user-select: none;
-    overflow-y: auto;
-    overflow-x: hidden;
+
+  .appBlock, .setupBlock {
     background-color: #323232;
-    border-top-left-radius: 8px;
-    animation: appearPage .14s linear;
-  }
-
-  @keyframes appearPage {
-    from {
-        padding-top: 100px;
-    } to {
-        padding-top: auto;
-    }
-  }
-
-  .columnsContainer {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
-    margin-top: 20px;
-  }
-
-  .homeColumn {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .homeCard {
-    border-radius: 8px;
-    background-color: #404040;
-    box-sizing: border-box;
-    padding: 20px;
-  }
-
-  .homeCard p {
-    margin-bottom: 20px;
-  }
-
-  .homeCard .middleOption {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 20px 15px;
+    border: 1px solid #232323;
     transition-duration: .2s;
-    border-radius: 4px;
-    margin-bottom: 10px;
   }
 
-  .homeCard .lastOption {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 20px 15px;
-    transition-duration: .2s;
-    border-radius: 4px;
+  .setupBlock {
+    background-color: #323232cc;
   }
 
-  .homeCard .middleOption:hover,
-  .homeCard .lastOption:hover {
-    background-color: #fff2;
+  .mediaOpen {
+    background-color: #323232;
+    display: none;
   }
-  
-  .userBar {
-    z-index: 1000;
+
+  .mediaOpen::before {
+    border-color: #323232 transparent transparent transparent;
+  }
+
+  .mediaOpen::after {
+    border-color:  transparent transparent #323232 transparent;
+  }
+
+  .subBlockItem {
+    background-color: #323232;
+    border-color: #232323;
+  }
+
+  .micaVersion .appBlock,
+  .micaVersion .setupBlock {
+    background-color: #323232aa;
+    border: 1px solid #232323aa;
+  }
+
+  .micaVersion .subBlockItem {
+    background-color: #323232aa;
+  }
+
+  .appBlock:hover {
+    border-color: transparent;
+    background-color: #323232;
+    border-top-color: #3b3b3b;
+  }
+
+  .micaVersion .appBlock:hover {
+    border-color: transparent;
+    background-color: #32323299;
+  }
+
+  .timeMouseMove {
+    background-image: linear-gradient(to bottom, #051650, #00072d);
+  }
+
+  .mouseMoveAcrylic {
+    background-color: #0000;
+  }
+
+  .waveImage {
+    background-image: url(./textures/waveDark.svg);
+  }
+}
+
+/*@media (max-height: 740px) {
+  .setupBlock {
+    min-height: 500px;
+  }
+
+  .settingsContainer {
+    height: 500px;
+  }
+
+  .infoSetup {
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 379px;
     height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding-top: 41px;
+    overflow: visible;
+    border-radius: 0%;
+    top: 0;
+    left: -480px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .setupBlock {
+    min-height: 500px;
   }
 
-  #username {
-    margin-bottom: 120px;
+  .settingsContainer {
+    height: 500px;
   }
-
-
-
-  .micaVersion section {
-    background-color: #32323255;
-  }
-
-  .micaVersion .homeCard {
-    background-color: #40404044;
-  }
+}*/

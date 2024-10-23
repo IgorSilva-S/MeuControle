@@ -1,126 +1,482 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Controle</title>
-    <link rel="stylesheet" href="segoeFont.css">
-    <link rel="stylesheet" href="index.css" />
+  <meta charset="UTF-8" />
+  <title>Meu Controle</title>
+  <link rel="stylesheet" href="segoeFont.css">
+  <link rel="stylesheet" href="index.css" />
 </head>
+
 <body>
-    <div class="titlebar">
-        <div class="titlebarIcon"></div>
-        Meu Controle
-    
-      </div>
-      <section id="home">
-        <h1 textType="titleLarge">Home</h1>
-        <p textType="subtitle">Veja funções para ser feitas no app</p>
-        <div class="columnsContainer">
-            <div class="homeColumn">
-                <div class="homeCard">
-                    <p textType="subtitle">Bloqueio</p>
-                    <div class="middleOption">
-                        Bloqueio por tempo
-                    </div>
-                    <div class="middleOption">
-                        Hora de dormir
-                    </div>
-                    <div class="lastOption">
-                        Cancelar bloqueios
-                    </div>
-                </div>
-                <div class="homeCard">
-                    <p textType="subtitle">Configurações</p>
-                    <div class="middleOption">
-                        Alterar horários e bloqueios
-                    </div>
-                    <div class="middleOption">
-                        Alterar armazenamento de dias
-                    </div>
-                    <div class="middleOption">
-                        Configurar tela de bloqueio
-                    </div>
-                    <div class="lastOption">
-                        Comportamento do app
-                    </div>
-                </div>
-          
-                <div class="homeCard">
-                    <p textType="subtitle">Dados</p>
-                    <div class="middleOption">
-                        Exportar/Importar dados
-                    </div>
-                    <div class="middleOption">
-                        Ver seus dados
-                    </div>
-                    <div class="middleOption">
-                        Migrar dados para banco de dados
-                    </div>
-                    <div class="middleOption">
-                        Migrar dados para máquina local
-                    </div>
-                    <div class="lastOption">
-                        Apagar dados
-                    </div>
-                </div>
-            </div>
-            <div class="homeColumn">
-                <div class="homeCard">
-                    <p textType="subtitle">Segurança</p>
-                    <div class="middleOption">
-                        Alterar senha
-                    </div>
-                    <div class="middleOption">
-                        Escolher dados para proteger com senha
-                    </div>
-                    <div class="middleOption">
-                        Em quais alterações exigir senha
-                    </div>
-                    <div class="lastOption">
-                        Exigir senha ao entrar no app
-                    </div>
-                </div>
-                <div class="homeCard">
-                    <p textType="subtitle">DevKeys</p>
-                    <div class="middleOption">
-                        Abrir Developer Tools
-                    </div>
-                    <div class="middleOption">
-                        Finalizar a tarefa "explorer.exe"
-                    </div>
-                    <div class="middleOption">
-                        Iniciar a tarefa "explorer.exe"
-                    </div>
-                    <div class="lastOption">
-                        Alertar com uma notificação
-                    </div>
-                </div>
-                <div class="homeCard">
-                    <p textType="subtitle">Outros</p>
-                    <div class="middleOption">
-                        Ver código fonte (GitHub)
-                    </div>
-                    <div class="middleOption">
-                        Versão atual do app
-                        <span>Canary 4</span>
-                    </div>
-                    <div class="middleOption">
-                        Verificar novas atualizações
-                    </div>
-                </div>
-            </div>
+  <section class="loadingApp" id="loadAll">
+    <img src="./icon/HDIcons/appIcon.png" alt="">
+    <div class="app-loader-busy loader-lg animate"></div>
+  </section>
+  <!--Portuguese (Brazil)-->
+  <div class="titlebar">
+    <div class="titlebarIcon"></div>
+    Meu Controle
+
+  </div>
+  <!--Welcome Page-->
+  <section class="welcomePage" id="welcomePage">
+    <h1 textType="titleLarge">Bem vindo(a) ao Meu Controle!</h1>
+    <p textType="subtitle">Gostaria de fazer a introdução do aplicativo?</p>
+    <div class="alignButtonsCenter">
+      <button class="app-btn app-btn-primary" id="setupButton">
+        <span>Ir para introdução</span>
+      </button>
+      <button class="app-btn" id="noSetupButton">
+        <span>Pular introdução</span>
+      </button>
+
+    </div>
+
+  </section>
+
+  <!--Setup Page-->
+  <section class="setupPage" id="setupPage" style="display: none;">
+
+    <div class="oobeBlock" id="Sblock1" style="background-color: red;"></div>
+    <div class="oobeBlock" id="Sblock2" style="animation-delay: 1s; background-color: orange;"></div>
+    <div class="oobeBlock" id="Sblock3" style="animation-delay: 2s; background-color: yellow;"></div>
+    <div class="oobeBlock" id="Sblock4" style="animation-delay: 3s; background-color: green;"></div>
+    <div class="oobeBlock" id="Sblock5" style="animation-delay: 4s;"></div>
+    <div class="oobeBlock" id="Sblock6" style="animation-delay: 5s; background-color: #8706d4;"></div>
+
+    <div class="acrylicSetup">
+      <div class="setupBlock">
+        <div class="settingsContainer startSettings" id="startPage" >
+          <h1 textType="title">Para qual fim você usará o app?</h1>
+          <p textType="caption">Não guardaremos essa informação, ela serve apenas para que o seu início no app seja mais
+            objetivo!</p>
+          <br>
+          <div style="display: block; text-align: start;">
+            <input type="radio" class="app-radio-button" name="appGoal" id="controlScreen">
+            <label for="controlScreen">Controlar o meu uso de tela</label>
+            <br><br>
+            <input type="radio" class="app-radio-button" name="appGoal" id="screenTimer">
+            <label for="screenTimer">Usar apenas um tempo específico de tela</label>
+            <br><br>
+            <input type="radio" class="app-radio-button" name="appGoal" id="sleepTime">
+            <label for="sleepTime">Para definir um horário para dormir</label>
+            <br><br>
+            <input type="radio" class="app-radio-button" name="appGoal" id="UDop2a3">
+            <label for="UDop2a3">Definir tempo de uso e hora de dormir</label>
+  
+          </div>
+          <div class="alignButtonsEnd">
+            <button class="app-btn app-btn-primary" id="goalToNextPage">Prosseguir</button>
+          </div>
         </div>
-      </section>
-      <div class="userBar">
-        <p textType="title" id="username">User</p>
+
+        <div class="settingsContainer" id="screenTime" style="display: none">
+          <h1 textType="title">Configure seu tempo de tela</h1>
+          <p textType="caption">Escolha o seu tempo de tela para uso do seu computador. No momento, apenas horas
+            redondas são utilizadas</p>
+          <div class="selectTimeContainer">
+            <div class="timeButton" id="addST">
+              <fluent-icon iconsize="16">&#xE70E;</fluent-icon>
+            </div>
+            <div class="selectTime">
+              <p textType="titleLarge" id="setupSTDisplay">01</p>
+            </div>
+            <div class="timeButton" id="removeST">
+              <fluent-icon iconsize="16">&#xE70D;</fluent-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="settingsContainer" id="endPage" style="display: none">
+          <h1 textType="title">Configurações finalizadas!</h1>
+          <br>
+          Para alterar as configurações posteriormente, procure pelas configurações do aplicativo!
+          <div class="alignButtonsEnd">
+            <button class="app-btn app-btn-primary" id="setupToUP">Finalizar</button>
+          </div>
+        </div>
       </div>
 
-      <script src="./script.js"></script>
-      <!--Windows UI Locak Links-->
-      <!-- CSS -->
-      <link href="./WinUI/windows-ui.min.css" rel="stylesheet" crossorigin="anonymous">
-      <!-- JS -->
-      <script src="./WinUI/windows-ui.min.js" crossorigin="anonymous"></script>
+      <button class="EaseOfAccess-btn">
+        <fluent-icon iconsize="32">&#xE776;</fluent-icon>
+      </button>
+    </div>
+  </section>
+
+  <!--User Page-->
+  <section id="userPage" class="userPage firstTime" style="display: none;">
+    <div class="timeMouseMove" id="mouseMove">
+
+      <div class="waveContainer">
+        <div class="waveImage"></div>
+        <div class="waveImage"></div>
+      </div>
+      <div class="waveContainer" style="animation-duration: 15s; opacity: .7">
+        <div class="waveImage"></div>
+        <div class="waveImage"></div>
+      </div>
+      <div class="waveContainer" style="animation-duration: 7s; opacity: .5">
+        <div class="waveImage"></div>
+        <div class="waveImage"></div>
+      </div>
+      <div class="waveContainer" style="animation-duration: 18s; opacity: .3">
+        <div class="waveImage"></div>
+        <div class="waveImage"></div>
+      </div>
+
+      <div class="mouseMoveAcrylic" id="acrylicPart">
+        <button class="changeTimeVisibility" id="changeTimeVisibility">
+          <fluent-icon iconsize="32" id="iconTimeButton">&#xE8C5;</fluent-icon>
+        </button>
+        <h1 textType="title" class="userPageTitle" id="myPageTitle">Minha página</h1>
+        <div class="userPageScreenTime">
+          <p textType="subtitle" id="textScreenTime">Tempo de tela utilizado:</p>
+          <p textType="display" id="screenTimeWatch">
+            <span id="hoursScreen">0</span> <span id="hourText">horas</span>
+
+            <span id="isMinute">
+              e <span id="minutesScreen">0</span> <span id="minuteText">minutos</span>
+            </span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="itemsContainer" id="items">
+     
+      <div class="appBlock" id="lockDeviceMenu">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xEE3F;</fluent-icon>
+          <div>
+            <p>Bloqueio de tela</p>
+            <p textType="caption">Mudar tempo, hora de dormir; Impedir bloqueio de hoje; Permitir acessos emergenciais
+            </p>
+          </div>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeLockDevice">&#xE70D;</fluent-icon>
+        </div>
+      </div>
+      <div class="appSubBlock" id="lockDeviceComp">
+        <div class="subBlockItem">
+          Alterar horário de dormir
+          <button class="app-btn" data-win-toggle="modal" data-win-target="#STC">Alterar</button>
+        </div>
+        <div class="subBlockItem">
+          Alterar tempo de tela
+          <button class="app-btn" data-win-toggle="modal" data-win-target="#TimeC">Alterar</button>
+        </div>
+        <div class="subBlockItem">
+          Bloqueio de hoje
+          <label class="app-switch">
+            <input type="checkbox" checked />
+            <div class="app-switch-view"></div>
+          </label>
+        </div>
+        <div class="subBlockItem">
+          Acesso emergencial
+          <label class="app-switch">
+            <input type="checkbox" checked />
+            <div class="app-switch-view"></div>
+          </label>
+        </div>
+        <div class="subBlockItem lastItem">
+          Bloquear alterações de tempo sem senha
+          <label class="app-switch">
+            <input type="checkbox" checked />
+            <div class="app-switch-view"></div>
+          </label>
+        </div>
+      </div>
+
+      <!--App Modal to change times-->
+      <!--Sleep time modal-->
+      <div class="app-alert" id="STC" data-win-toggle="modal" data-win-target="#STC" tabindex="-1">
+        <div class="app-alert-modal" aria-modal="true" role="dialog">
+          <div class="app-alert-header">
+            <h1 textType="title">Alterar horário de dormir</h1>
+            <p textType="caption" class="app-color-danger">Essa configuração é protegida por senha</p>
+            <p textType="caption">Essa configuração pode ser alterada uma vez a cada 7 dias</p>
+            <br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="number" id="newSleepLockTime"
+                placeholder="Insira o novo horário de bloqueio (horas)" max="23" min="0">
+            </div>
+            <br><br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="number" id="newSleepUnlockTime"
+                placeholder="Insira o novo horário de desbloqueio (horas)" max="23" min="0">
+            </div>
+            <br><br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="password" id="UP_ChangeSleepTime" placeholder="Insira a sua senha">
+              <div class="app-input-end-content">
+                <button data-win-toggle="password" data-win-target="#UP_ChangeSleepTime"></button>
+              </div>
+            </div>
+            <br><br>
+          </div>
+          <div class="app-alert-footer">
+            <button class="app-btn" data-win-toggle="modal" data-win-target="#STC">Cancelar</button>
+            <button class="app-btn app-btn-primary">
+              <span>Finalizar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--All time changer-->
+
+      <div class="app-alert" id="TimeC" data-win-toggle="modal" data-win-target="#TimeC" tabindex="-1">
+        <div class="app-alert-modal" aria-modal="true" role="dialog">
+          <div class="app-alert-header">
+            <h1 textType="title">Alterar tempo de tela</h1>
+            <p textType="caption" class="app-color-danger">Essa configuração é protegida por senha</p>
+            <p textType="caption">Essa configuração pode ser alterada uma vez a cada dia</p>
+            <br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="number" id="newScreenTime"
+                placeholder="Insira o novo tempo de tela (horas)" max="23" min="0">
+            </div>
+            <br><br>
+            <div class="app-input-container" style="width: 100%">
+              <input class="app-input-text" type="password" id="UP_ChangeScreenTime" placeholder="Insira a sua senha">
+              <div class="app-input-end-content">
+                <button data-win-toggle="password" data-win-target="#UP_ChangeScreenTime"></button>
+              </div>
+            </div>
+            <br><br>
+          </div>
+          <div class="app-alert-footer">
+            <button class="app-btn" data-win-toggle="modal" data-win-target="#TimeC">Cancelar</button>
+            <button class="app-btn app-btn-primary">
+              <span>Finalizar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--End Time Changer Modals-->
+
+      <div class="appBlock">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xE771;</fluent-icon>
+          <div>
+            <p>Personalização</p>
+            <p textType="caption">Deixe o aplicativo com sua cara</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="appBlock" id="settingsMenu">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xE713;</fluent-icon>
+          <div>
+            <p>Configurações</p>
+            <p textType="caption">Altere configurações como senha, modo de comportamento do aplicativo, contagem</p>
+          </div>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeSettings">&#xE70D;</fluent-icon>
+        </div>
+      </div>
+      <div class="appSubBlock" id="settingsComp">
+        <div class="subBlockItem">
+          <div>
+            Alterar senha
+            <p textType="caption">Caso tenha esquecido a senha, clique em Esqueci</p>
+          </div>
+          <div class="alignButtons">
+            <button class="app-btn">Esqueci</button>
+            <button class="app-btn">Alterar</button>
+          </div>
+        </div>
+        <div class="subBlockItem">
+          Modo de comportamento do aplicativo
+          <div class="app-select-menu">
+            <span class="app-dropdown-title" data-win-toggle="dropdown" data-win-target="#appBehavior">Esconder
+              total</span>
+            <ul class="app-dropdown-list" id="appBehavior">
+              <li class="app-dropdown-list-item selected"><span>Esconder total</span></li>
+              <li class="app-dropdown-list-item"><span>Esconder na tray</span></li>
+              <li class="app-dropdown-list-item"><span>Popup</span></li>
+              <li class="app-dropdown-list-item"><span>Barra</span></li>
+              <li class="app-dropdown-list-item"><span>Barra de tarefas</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="subBlockItem lastItem">
+          <div>
+            Número de dias para armazenar na contagem
+            <p textType="caption">Não tem como recuperar dias contados que já sairam da lista</p>
+          </div>
+          <div class="app-select-menu">
+            <span class="app-dropdown-title" data-win-toggle="dropdown" data-win-target="#saveDays">Sete dias</span>
+            <ul class="app-dropdown-list" id="saveDays">
+              <li class="app-dropdown-list-item selected"><span>Sete dias</span></li>
+              <li class="app-dropdown-list-item"><span>Seis dias</span></li>
+              <li class="app-dropdown-list-item"><span>Cinco dias</span></li>
+              <li class="app-dropdown-list-item"><span>Quatro dias</span></li>
+              <li class="app-dropdown-list-item"><span>Três dias</span></li>
+              <li class="app-dropdown-list-item"><span>Dois dias</span></li>
+              <li class="app-dropdown-list-item"><span>Um dia</span></li>
+              <li class="app-dropdown-list-item"><span>Não armazenar</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="appBlock" id="devKeysMenu">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xE943;</fluent-icon>
+          <div>
+            <p>DevKeys</p>
+            <p textType="caption">Configurações de desenvolvedor</p>
+          </div>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeDevKeys">&#xE70D;</fluent-icon>
+        </div>
+      </div>
+      <div class="appSubBlock" id="devKeysComp">
+        <div class="subBlockItem">
+          <div>
+            <p textType="body">Abrir Developer Tools</p>
+          </div>
+          <fluent-icon iconsize="24" id="iconOpenDevTools">&#xE8A7;</fluent-icon>
+        </div>
+        <div class="subBlockItem" id="dedication">
+          <div class="block-icon-title">
+            <fluent-icon iconsize="16">&#xE770;</fluent-icon>
+            <div>
+              Dedicatória
+              <p textType="caption">Dedicatória do desenvolvedor para o notebook que iniciou o projeto</p>
+            </div>
+          </div>
+          <button class="app-btn" data-win-toggle="modal" data-win-target="#aspireEnd">
+            Abrir dedicatória
+          </button>
+        </div>
+        <div class="subBlockItem">
+          Spawnar uma notificação
+          <button class="app-btn" id="devKeysNotify">
+            Notificar
+          </button>
+        </div>
+        <div class="subBlockItem">
+          Finalizar tarefa "explorer.exe"
+          <button class="app-btn" id="killExplorer">
+            Finalizar
+          </button>
+        </div>
+        <div class="subBlockItem lastItem">
+          Iniciar tarefa "explorer.exe"
+          <button class="app-btn" id="startExplorer">
+            Iniciar
+          </button>
+        </div>
+      </div>
+      <!--Dedicatória: Aspire-->
+      <div class="app-alert" id="aspireEnd" data-win-toggle="modal" data-win-target="#aspireEnd" tabindex="-1">
+        <div class="app-alert-modal" aria-modal="true" role="dialog">
+          <div class="app-alert-header">
+            <h1 textType="title">Dedicatória</h1>
+            <br>
+            Bom... <br>
+            se passou um tempo desde que ganhei você (quase um ano que a tragédia ocorreu), e eu sou extremamente grato
+            pelo Ricardo e pela Elen, por terem me disponibilzado o Aspire... <br>
+            Agora, chegou a hora de progredir, de trocar de sistema, de melhorar o computador pela primeira vez, mas,
+            não será você, visto que tem muita coisa que não pode ser modificada em você. <br>
+            Agradeço por esse tempo que você ficou funcionando e por ter me ajudado na hora que precisei de um
+            computador, e, por ter suportado da melhor forma possível um sistema que não foi criado para você.
+            <br><br>
+            Muito obrigado.
+            <br><br>
+            IgorSilva-S (Igor Silva Santos)
+            <br><br>
+          </div>
+          <div class="app-alert-footer">
+            <button class="app-btn app-btn-primary" data-win-toggle="modal" data-win-target="#aspireEnd">
+              <span>Fechar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="appBlock" id="infoMenu">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xE946;</fluent-icon>
+          <div>
+            <p>Informações</p>
+            <p textType="caption">Ver créditos, versão, atualizações</p>
+          </div>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeInfo">&#xE70D;</fluent-icon>
+        </div>
+      </div>
+      <div class="appSubBlock" id="infoComp">
+        <div class="subBlockItem">
+          <div>
+            <p textType="body">Versão</p>
+          </div>
+          <div>
+            Canary 3
+          </div>
+        </div>
+
+        <div class="subBlockItem lastItem">
+          <div>
+            <p textType="body">Repositório GitHub</p>
+          </div>
+          <fluent-icon iconsize="24" id="openGitHubBrowser">&#xE8A7;</fluent-icon>
+        </div>
+      </div>
+
+      <div class="appBlock" id="eraseMenu">
+        <div class="block-icon-title">
+          <fluent-icon iconsize="24">&#xE75C;</fluent-icon>
+          <div>
+            <p>Apagar</p>
+            <p textType="caption">Apagar horários, dias, senha; Apagar todos os dados</p>
+          </div>
+          <fluent-icon iconsize="16" class="alertExpose" id="exposeErase">&#xE70D;</fluent-icon>
+        </div>
+      </div>
+      <div class="appSubBlock" id="eraseComp">
+        <div class="subBlockItem">
+          <p textType="body">Apagar contagem dos últimos sete dias</p>
+          <button class="app-btn">Apagar</button>
+        </div>
+        <div class="subBlockItem">
+          <p textType="body">Apagar horário de dormir</p>
+          <button class="app-btn">Apagar</button>
+        </div>
+        <div class="subBlockItem">
+          <p textType="body">Apagar tempo de tela</p>
+          <button class="app-btn">Apagar</button>
+        </div>
+        <div class="subBlockItem">
+          <p textType="body">Apagar senha de configurações</p>
+          <button class="app-btn">Apagar</button>
+        </div>
+        <div class="subBlockItem lastItem">
+          <div class="block-icon-title">
+            <fluent-icon iconsize="16">&#xE74D;</fluent-icon>
+            <div>
+              <p>Apagar todos os dados</p>
+              <p textType="caption">Apague todas as configurações e definições do aplicativo. Essa é uma ação sem volta!
+              </p>
+            </div>
+          </div>
+          <button class="app-btn">Apagar</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="./script.js"></script>
+  <script src="./mouseAnimation.js"></script>
+  <!--Windows UI Locak Links-->
+  <!-- CSS -->
+  <link href="./WinUI/windows-ui.min.css" rel="stylesheet" crossorigin="anonymous">
+  <!-- JS -->
+  <script src="./WinUI/windows-ui.min.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
